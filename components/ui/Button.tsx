@@ -61,7 +61,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         // Variant styles
         const variantStyles = {
             // Default (Primary Action): using backgroundInversePrimary (Black) text-contentInversePrimary (White)
-            default: "bg-backgroundInversePrimary text-contentInversePrimary hover:bg-[#27272A] active:bg-[#3F3F46] border border-transparent",
+            default: "bg-backgroundInversePrimary text-contentInversePrimary hover:bg-backgroundInverseSecondary active:bg-backgroundInverseTertiary border border-transparent",
 
             // Outline (Secondary Action): bg-backgroundPrimary (White), border-borderPrimary ?? (Need to check border tokens, usually borderPrimary is light gray)
             // Using border-[#E4E4E7] (Zinc-200) which matches backgroundQuaternary or borderPrimary? 

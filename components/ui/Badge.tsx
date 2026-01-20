@@ -35,35 +35,31 @@ interface BadgeProps {
 }
 
 const colorStyles: Record<BadgeColor, string> = {
-    Zinc: "bg-[#F4F4F5] text-[#18181B]",       // zinc-100, zinc-900
-    Red: "bg-[#FEE2E2] text-[#991B1B]",        // red-100, red-800
-    Orange: "bg-[#FFEDD5] text-[#9A3412]",     // orange-100, orange-800
-    Amber: "bg-[#FEF3C7] text-[#92400E]",      // amber-100, amber-800
-    Yellow: "bg-[#FEF9C3] text-[#854D0E]",     // yellow-100, yellow-800
-    Lime: "bg-[#ECFCCB] text-[#3F6212]",       // lime-100, lime-800
-    Green: "bg-[#DCFCE7] text-[#166534]",      // green-100, green-800
-    Emerald: "bg-[#D1FAE5] text-[#065F46]",    // emerald-100, emerald-800
-    Teal: "bg-[#CCFBF1] text-[#115E59]",       // teal-100, teal-800
-    Cyan: "bg-[#CFFAFE] text-[#155E75]",       // cyan-100, cyan-800
-    Sky: "bg-[#E0F2FE] text-[#075985]",        // sky-100, sky-800
-    Blue: "bg-[#DBEAFE] text-[#1E40AF]",       // blue-100, blue-800
-    Indigo: "bg-[#E0E7FF] text-[#3730A3]",     // indigo-100, indigo-800
-    Violet: "bg-[#EDE9FE] text-[#5B21B6]",     // violet-100, violet-800
-    Purple: "bg-[#F3E8FF] text-[#6B21A8]",     // purple-100, purple-800
-    Fuchsia: "bg-[#FAE8FF] text-[#86198F]",    // fuchsia-100, fuchsia-800
-    Pink: "bg-[#FCE7F3] text-[#9D174D]",       // pink-100, pink-800
-    Rose: "bg-[#FFE4E6] text-[#9F1239]",       // rose-100, rose-800
-    Black: "bg-[#18181B] text-[#FAFAFA]",      // zinc-900, zinc-50 (For selected states)
+    Zinc: "bg-[var(--background-zinc)] text-[var(--content-zinc)]",
+    Red: "bg-[var(--background-red)] text-[var(--content-red)]",
+    Orange: "bg-[var(--background-orange)] text-[var(--content-orange)]",
+    Amber: "bg-[var(--background-amber)] text-[var(--content-amber)]",
+    Yellow: "bg-[var(--background-yellow)] text-[var(--content-yellow)]",
+    Lime: "bg-[var(--background-lime)] text-[var(--content-lime)]",
+    Green: "bg-[var(--background-green)] text-[var(--content-green)]",
+    Emerald: "bg-[var(--background-emerald)] text-[var(--content-emerald)]",
+    Teal: "bg-[var(--background-teal)] text-[var(--content-teal)]",
+    Cyan: "bg-[var(--background-cyan)] text-[var(--content-cyan)]",
+    Sky: "bg-[var(--background-sky)] text-[var(--content-sky)]",
+    Blue: "bg-[var(--background-blue)] text-[var(--content-blue)]",
+    Indigo: "bg-[var(--background-indigo)] text-[var(--content-indigo)]",
+    Violet: "bg-[var(--background-violet)] text-[var(--content-violet)]",
+    Purple: "bg-[var(--background-purple)] text-[var(--content-purple)]",
+    Fuchsia: "bg-[var(--background-fuchsia)] text-[var(--content-fuchsia)]",
+    Pink: "bg-[var(--background-pink)] text-[var(--content-pink)]",
+    Rose: "bg-[var(--background-rose)] text-[var(--content-rose)]",
+    Black: "bg-[var(--background-inverse-primary)] text-[var(--content-inverse-primary)]",
 };
 
 /**
  * @component Badge
  * @description 텍스트 정보를 시각적으로 그룹화하거나 강조할 때 사용하는 컴포넌트입니다.
  * X 버튼을 포함하여 필터 제거 등의 기능을 지원할 수 있습니다.
- * 
- * @example
- * <Badge color="Green">활성</Badge>
- * <Badge showXButton onRemove={handleRemove}>필터명</Badge>
  */
 export default function Badge({
     children,

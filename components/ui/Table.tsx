@@ -195,7 +195,7 @@ export default function Table<T extends { id: string | number }>({
     };
 
     return (
-        <div className="rounded-xl border border-borderPrimary bg-white p-5 shadow-[0px_1px_2px_rgba(0,0,0,0.05)] relative">
+        <div className="rounded-xl border border-borderPrimary bg-backgroundPrimary p-5 shadow-[0px_1px_2px_rgba(0,0,0,0.05)] relative">
             {/* Section Title */}
             <div className="mb-4 text-base font-semibold leading-6 text-contentPrimary">List</div>
 
@@ -210,7 +210,7 @@ export default function Table<T extends { id: string | number }>({
                                 type="text"
                                 placeholder={searchPlaceholder}
                                 onChange={(e) => onSearch && onSearch(e.target.value)}
-                                className="h-10 w-full rounded-lg border border-borderSecondary bg-white px-3 pl-10 text-sm text-contentPrimary placeholder:text-contentSecondary focus:border-backgroundInversePrimary focus:outline-none transition-colors"
+                                className="h-10 w-full rounded-lg border border-borderSecondary bg-backgroundPrimary px-3 pl-10 text-sm text-contentPrimary placeholder:text-contentSecondary focus:border-backgroundInversePrimary focus:outline-none transition-colors"
                             />
                             <div className="absolute left-3 top-1/2 -translate-y-1/2 text-contentSecondary">
                                 <MagnifyingGlassIcon className="w-5 h-5" />
@@ -257,7 +257,7 @@ export default function Table<T extends { id: string | number }>({
                             {openDropdown === "columns" && (
                                 <>
                                     <div className="fixed inset-0 z-40" onClick={() => setOpenDropdown(null)} />
-                                    <div className="absolute right-0 top-full z-50 mt-1 w-56 rounded-lg border border-borderSecondary bg-white p-2 shadow-lg">
+                                    <div className="absolute right-0 top-full z-50 mt-1 w-56 rounded-lg border border-borderSecondary bg-backgroundPrimary p-2 shadow-lg">
                                         <div className="mb-2 px-2 text-xs font-semibold text-contentSecondary">Visible Columns</div>
                                         {columns.map(col => (
                                             <label key={col.key} className="flex items-center gap-2 rounded px-2 py-1.5 hover:bg-backgroundSecondary">
@@ -357,12 +357,12 @@ export default function Table<T extends { id: string | number }>({
                                         className={`
                                             group border-b last:border-0 transition-colors
                                             ${isExpanded
-                                                ? "bg-[#F2FBF7] border-[#E2F1EB]"
-                                                : "bg-white border-borderSecondary hover:bg-backgroundSecondary cursor-pointer"
+                                                ? "bg-tealPrimary/5 border-tealPrimary/20"
+                                                : "bg-backgroundPrimary border-borderSecondary hover:bg-backgroundSecondary cursor-pointer"
                                             }
                                         `}
                                     >
-                                        <td className={`w-10 py-3 text-center ${isExpanded ? "border-l-[4px] border-l-[#00BFA5]" : "pl-[4px]"}`}>
+                                        <td className={`w-10 py-3 text-center ${isExpanded ? "border-l-[4px] border-l-tealPrimary" : "pl-[4px]"}`}>
                                             {/* Expand/Collapse Chevron */}
                                             {hasSubRows && (
                                                 <button
@@ -405,9 +405,9 @@ export default function Table<T extends { id: string | number }>({
 
                                     {/* Expanded Row (Nested Table w/ Seamless Look & Teal Border) */}
                                     {isExpanded && hasSubRows && (
-                                        <tr className="bg-[#F2FBF7] border-b border-borderSecondary">
+                                        <tr className="bg-tealPrimary/5 border-b border-borderSecondary">
                                             {/* Spacer for Indentation with Teal Border */}
-                                            <td className="w-10 py-3 text-center border-r border-[#E2F1EB] border-l-[4px] border-l-[#00BFA5]"></td>
+                                            <td className="w-10 py-3 text-center border-r border-tealPrimary/20 border-l-[4px] border-l-tealPrimary"></td>
 
                                             {/* Nested Table Container - No Padding/Card Style */}
                                             <td colSpan={columns.length + 2} className="p-0">
@@ -440,7 +440,7 @@ export default function Table<T extends { id: string | number }>({
                                                         </thead>
                                                         <tbody>
                                                             {(item as any).subRows.map((subItem: any) => (
-                                                                <tr key={subItem.id} className="border-b border-[#E2F1EB] last:border-0 hover:bg-[#EAF7F2]">
+                                                                <tr key={subItem.id} className="border-b border-tealPrimary/10 last:border-0 hover:bg-tealPrimary/5">
                                                                     <td className="py-3 pl-4">
                                                                         <Checkbox
                                                                             checked={selectedRows.has(subItem.id)}
@@ -477,7 +477,7 @@ export default function Table<T extends { id: string | number }>({
                     <div className="relative">
                         <button
                             onClick={() => setOpenDropdown(openDropdown === "rowCount" ? null : "rowCount")}
-                            className="flex h-8 items-center gap-2 rounded-lg border border-borderSecondary bg-white px-2.5 text-sm font-medium hover:bg-backgroundSecondary"
+                            className="flex h-8 items-center gap-2 rounded-lg border border-borderSecondary bg-backgroundPrimary px-2.5 text-sm font-medium hover:bg-backgroundSecondary"
                         >
                             {itemsPerPage}
                             <ChevronDownIcon className="w-3 h-3" />
@@ -485,7 +485,7 @@ export default function Table<T extends { id: string | number }>({
                         {openDropdown === "rowCount" && (
                             <>
                                 <div className="fixed inset-0 z-40" onClick={() => setOpenDropdown(null)} />
-                                <div className="absolute bottom-full left-0 z-50 mb-1 w-20 rounded-lg border border-borderSecondary bg-white p-1 shadow-lg">
+                                <div className="absolute bottom-full left-0 z-50 mb-1 w-20 rounded-lg border border-borderSecondary bg-backgroundPrimary p-1 shadow-lg">
                                     {[10, 20, 30, 50].map(count => (
                                         <button
                                             key={count}

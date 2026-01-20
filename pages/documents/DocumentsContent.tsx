@@ -140,7 +140,7 @@ export default function DocumentsContent() {
                         <button
                             type="button"
                             onClick={() => toggleFavorite("Documents")}
-                            className="flex h-8 w-8 items-center justify-center rounded-lg border border-borderPrimary bg-backgroundPrimary hover:bg-gray-50 transition-colors shadow-sm"
+                            className="flex h-8 w-8 items-center justify-center rounded-lg border border-borderPrimary bg-backgroundPrimary hover:bg-backgroundSecondary transition-colors shadow-sm"
                         >
                             {favorites.has("Documents") ? (
                                 <BookmarkIconSolid className="h-4 w-4 text-[#0f766e]" />
@@ -167,7 +167,7 @@ export default function DocumentsContent() {
             </div>
 
             {/* Table Section - Figma ID: 4857:88310 */}
-            <div className="rounded-xl border border-borderPrimary bg-white p-8 shadow-sm">
+            <div className="rounded-xl border border-borderPrimary bg-backgroundPrimary p-8 shadow-sm">
                 <div className="mb-6 flex items-center justify-between">
                     <h2 className="text-base font-semibold text-contentPrimary">Documents List</h2>
                 </div>

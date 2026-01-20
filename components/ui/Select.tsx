@@ -51,7 +51,7 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
                         className="text-sm font-semibold leading-5 text-contentPrimary"
                     >
                         {label}
-                        {props.required && <span className="ml-0.5 text-[#ef4444]">*</span>}
+                        {props.required && <span className="ml-0.5 text-[var(--content-red)]">*</span>}
                     </label>
                 )}
                 <div className="relative">
@@ -59,10 +59,10 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
                         ref={ref}
                         id={selectId}
                         className={`
-              flex h-10 w-full appearance-none rounded-lg border border-borderSecondary bg-white px-3 py-2 pr-10 text-sm text-contentPrimary
+              flex h-10 w-full appearance-none rounded-lg border border-borderSecondary bg-backgroundPrimary px-3 py-2 pr-10 text-sm text-contentPrimary
               focus:border-borderPrimary focus:outline-none focus:ring-1 focus:ring-borderPrimary
               disabled:cursor-not-allowed disabled:bg-backgroundSecondary disabled:text-contentTertiary
-              ${error ? "border-red-500 focus:border-red-500 focus:ring-red-500" : ""}
+              ${error ? "border-[var(--content-red)] focus:border-[var(--content-red)] focus:ring-[var(--content-red)]" : ""}
               ${className}
             `}
                         {...props}
@@ -77,7 +77,7 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
                         <ChevronDownIcon className="h-4 w-4 text-contentTertiary" aria-hidden="true" />
                     </div>
                 </div>
-                {error && <p className="text-xs text-red-500">{error}</p>}
+                {error && <p className="text-xs text-[var(--content-red)]">{error}</p>}
             </div>
         );
     }

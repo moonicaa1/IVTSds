@@ -1,3 +1,147 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light Mode Tokens (Semantic 1:1 Mapping) */
+    --content-primary: #09090B;
+    --content-secondary: #71717A;
+    --content-tertiary: #A1A1AA;
+    --content-quaternary: #D4D4D8;
+    --content-inverse-primary: #FFFFFF;
+    --content-inverse-secondary: #A1A1AA;
+    --content-inverse-tertiary: #71717A;
+
+    --background-primary: #FFFFFF;
+    --background-secondary: #FAFAFA;
+    --background-tertiary: #F1F1F2;
+    --background-quaternary: #E4E4E7;
+    --background-inverse-primary: #18181B;
+    --background-inverse-secondary: #27272A;
+    --background-inverse-tertiary: #3F3F46;
+
+    --border-primary: #D4D4D8;
+    --border-secondary: #E4E4E7;
+    --border-tertiary: #F4F4F5;
+
+    /* Extensions (Light) */
+    --background-red: #FEE2E2;
+    --background-orange: #FFEDD5;
+    --background-yellow: #FEF9C3;
+    --background-amber: #FEF3C7;
+    --background-lime: #ECFCCB;
+    --background-emerald: #D1FAE5;
+    --background-green: #DCFCE7;
+    --background-teal: #CCFBF1;
+    --background-cyan: #CFFAFE;
+    --background-sky: #E0F2FE;
+    --background-blue: #DBEAFE;
+    --background-indigo: #E0E7FF;
+    --background-violet: #EDE9FE;
+    --background-purple: #F3E8FF;
+    --background-fuchsia: #FAE8FF;
+    --background-pink: #FCE7F3;
+    --background-rose: #FFE4E6;
+    --background-zinc: #F4F4F5;
+
+    --content-red: #B91C1C;
+    --content-orange: #C2410C;
+    --content-yellow: #A16207;
+    --content-amber: #B45309;
+    --content-lime: #4D7C0F;
+    --content-emerald: #047857;
+    --content-green: #15803D;
+    --content-teal: #0F766E;
+    --content-cyan: #0E7490;
+    --content-sky: #0369A1;
+    --content-blue: #1D4ED8;
+    --content-indigo: #4338CA;
+    --content-violet: #6D28D9;
+    --content-purple: #7E22CE;
+    --content-fuchsia: #A21CAF;
+    --content-pink: #BE185D;
+    --content-rose: #BE123C;
+    --content-zinc: #3F3F46;
+
+    /* Semantic Extensions */
+    --teal-primary: #0F766E;
+    --teal-secondary: #14B8A6;
+  }
+
+  .dark {
+    /* Dark Mode Tokens (Semantic 1:1 Mapping) */
+    --content-primary: #FFFFFF;
+    --content-secondary: #A1A1AA;
+    --content-tertiary: #71717A;
+    --content-quaternary: #52525B;
+    --content-inverse-primary: #FFFFFF;
+    --content-inverse-secondary: #D4D4D8;
+    --content-inverse-tertiary: #A1A1AA;
+
+    --background-primary: #18181B;
+    --background-secondary: #27272A;
+    --background-tertiary: #3F3F46;
+    --background-quaternary: #52525B;
+    --background-inverse-primary: #52525B;
+    --background-inverse-secondary: #A1A1AA;
+    --background-inverse-tertiary: #E4E4E7;
+
+    --border-primary: #52525B;
+    --border-secondary: #3F3F46;
+    --border-tertiary: #18181B;
+
+    /* Extensions (Dark) */
+    --background-red: #450A0A;
+    --background-orange: #431407;
+    --background-yellow: #422006;
+    --background-amber: #451A03;
+    --background-lime: #1A2E05;
+    --background-emerald: #022C22;
+    --background-green: #052E16;
+    --background-teal: #042F2E;
+    --background-cyan: #083344;
+    --background-sky: #082F49;
+    --background-blue: #172554;
+    --background-indigo: #1E1B4B;
+    --background-violet: #2E1065;
+    --background-purple: #3B0764;
+    --background-fuchsia: #4A044E;
+    --background-pink: #500724;
+    --background-rose: #4C0519;
+    --background-zinc: #27272A;
+
+    --content-red: #F87171;
+    --content-orange: #FB923C;
+    --content-yellow: #FACC15;
+    --content-amber: #FBBF24;
+    --content-lime: #A3E635;
+    --content-emerald: #34D399;
+    --content-green: #4ADE80;
+    --content-teal: #2DD4BF;
+    --content-cyan: #22D3EE;
+    --content-sky: #38BDF8;
+    --content-blue: #60A5FA;
+    --content-indigo: #818CF8;
+    --content-violet: #A78BFA;
+    --content-purple: #C084FC;
+    --content-fuchsia: #E879F9;
+    --content-pink: #F472B6;
+    --content-rose: #FB7185;
+    --content-zinc: #A1A1AA;
+
+    /* Semantic Extensions */
+    --teal-primary: #2DD4BF;
+    --teal-secondary: #5EEAD4;
+  }
+
+  * {
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 200ms;
+  }
+
+  body {
+    @apply bg-backgroundSecondary text-contentPrimary antialiased;
+  }
+}

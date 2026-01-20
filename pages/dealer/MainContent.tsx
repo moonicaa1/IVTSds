@@ -122,18 +122,18 @@ export default function MainContent() {
       key: "code",
       header: "Dealer Code",
       width: "140px",
-      render: (item: Dealer) => <span className="font-bold text-[#09090B]">{item.code}</span>
+      render: (item: Dealer) => <span className="font-bold text-[var(--content-primary)]">{item.code}</span>
     },
     {
       key: "name",
       header: "Name",
-      render: (item: Dealer) => <span className="font-bold text-[#09090B]">{item.name}</span>
+      render: (item: Dealer) => <span className="font-bold text-[var(--content-primary)]">{item.name}</span>
     },
     {
       key: "edition",
       header: "Edition",
       width: "80px",
-      render: (item: Dealer) => <span className="font-semibold text-[#09090B]">{item.edition}</span>
+      render: (item: Dealer) => <span className="font-semibold text-[var(--content-primary)]">{item.edition}</span>
     },
     {
       key: "dealerType",
@@ -187,7 +187,7 @@ export default function MainContent() {
       key: "creationTime",
       header: "Creation Time",
       width: "120px",
-      render: (item: Dealer) => <span className="font-bold text-[#09090B]">{item.creationTime}</span>
+      render: (item: Dealer) => <span className="font-bold text-[var(--content-primary)]">{item.creationTime}</span>
     },
 
   ];
@@ -228,21 +228,21 @@ export default function MainContent() {
       <div className="mb-6">
         <div className="grid grid-cols-3 gap-6">
           {/* KPI Card 1: Active Dealers Now */}
-          <div className="h-[124px] rounded-lg border border-[#D4D4D8] bg-white p-6">
+          <div className="h-[124px] rounded-lg border border-[var(--border-primary)] bg-backgroundPrimary p-6">
             <div className="flex h-full flex-col">
               <div className="flex-1">
-                <div className="mb-1 text-base font-semibold leading-6 text-[#000000]">Active Dealers Now</div>
+                <div className="mb-1 text-base font-semibold leading-6 text-[var(--content-primary)]">Active Dealers Now</div>
                 <div className="flex items-baseline gap-2">
                   <div className="flex items-baseline gap-1">
-                    <div className="text-[30px] font-semibold leading-9 tracking-[-0.75px] text-[#09090B]">142</div>
-                    <div className="text-xl font-semibold leading-7 tracking-[-0.5px] text-[#09090B]">Case</div>
+                    <div className="text-[30px] font-semibold leading-9 tracking-[-0.75px] text-[var(--content-primary)]">142</div>
+                    <div className="text-xl font-semibold leading-7 tracking-[-0.5px] text-[var(--content-primary)]">Case</div>
                   </div>
-                  <div className="flex items-center gap-0.5 rounded-md bg-[#dcfce7] px-1.5 py-0.5">
-                    <svg className="h-3 w-3 text-[#15803d]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="flex items-center gap-0.5 rounded-md bg-[var(--background-green)] px-1.5 py-0.5">
+                    <svg className="h-3 w-3 text-[var(--content-green)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.5 15.75l7.5-7.5 7.5 7.5" />
                     </svg>
-                    <span className="text-xs font-medium leading-4 text-[#15803d]">+2</span>
-                    <span className="text-[10px] font-medium leading-4 text-[#15803d]">/vs last mo</span>
+                    <span className="text-xs font-medium leading-4 text-[var(--content-green)]">+2</span>
+                    <span className="text-[10px] font-medium leading-4 text-[var(--content-green)]">/vs last mo</span>
                   </div>
                 </div>
               </div>
@@ -250,21 +250,21 @@ export default function MainContent() {
           </div>
 
           {/* KPI Card 2: Pending Approvals */}
-          <div className="h-[124px] rounded-lg border border-[#D4D4D8] bg-white p-6">
+          <div className="h-[124px] rounded-lg border border-[var(--border-primary)] bg-backgroundPrimary p-6">
             <div className="flex h-full flex-col">
               <div className="flex-1">
-                <div className="mb-1 text-base font-semibold leading-6 text-[#000000]">Pending Approvals</div>
+                <div className="mb-1 text-base font-semibold leading-6 text-[var(--content-primary)]">Pending Approvals</div>
                 <div className="flex items-baseline gap-2">
                   <div className="flex items-baseline gap-1">
-                    <div className="text-[30px] font-semibold leading-9 tracking-[-0.75px] text-[#09090B]">8</div>
-                    <div className="text-xl font-semibold leading-7 tracking-[-0.5px] text-[#09090B]">Case</div>
+                    <div className="text-[30px] font-semibold leading-9 tracking-[-0.75px] text-[var(--content-primary)]">8</div>
+                    <div className="text-xl font-semibold leading-7 tracking-[-0.5px] text-[var(--content-primary)]">Case</div>
                   </div>
-                  <div className="flex items-center gap-0.5 rounded-md bg-[#dcfce7] px-1.5 py-0.5">
-                    <svg className="h-3 w-3 text-[#15803d]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="flex items-center gap-0.5 rounded-md bg-[var(--background-green)] px-1.5 py-0.5">
+                    <svg className="h-3 w-3 text-[var(--content-green)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.5 15.75l7.5-7.5 7.5 7.5" />
                     </svg>
-                    <span className="text-xs font-medium leading-4 text-[#15803d]">-3</span>
-                    <span className="text-[10px] font-medium leading-4 text-[#15803d]">/vs last mo</span>
+                    <span className="text-xs font-medium leading-4 text-[var(--content-green)]">-3</span>
+                    <span className="text-[10px] font-medium leading-4 text-[var(--content-green)]">/vs last mo</span>
                   </div>
                 </div>
               </div>
@@ -272,21 +272,21 @@ export default function MainContent() {
           </div>
 
           {/* KPI Card 3: New Registrations */}
-          <div className="h-[124px] rounded-lg border border-[#D4D4D8] bg-white p-6">
+          <div className="h-[124px] rounded-lg border border-[var(--border-primary)] bg-backgroundPrimary p-6">
             <div className="flex h-full flex-col">
               <div className="flex-1">
-                <div className="mb-1 text-base font-semibold leading-6 text-[#000000]">New Registrations</div>
+                <div className="mb-1 text-base font-semibold leading-6 text-[var(--content-primary)]">New Registrations</div>
                 <div className="flex items-baseline gap-2">
                   <div className="flex items-baseline gap-1">
-                    <div className="text-[30px] font-semibold leading-9 tracking-[-0.75px] text-[#09090B]">3</div>
-                    <div className="text-xl font-semibold leading-7 tracking-[-0.5px] text-[#09090B]">Case</div>
+                    <div className="text-[30px] font-semibold leading-9 tracking-[-0.75px] text-[var(--content-primary)]">3</div>
+                    <div className="text-xl font-semibold leading-7 tracking-[-0.5px] text-[var(--content-primary)]">Case</div>
                   </div>
-                  <div className="flex items-center gap-0.5 rounded-md bg-[#ffe4e6] px-1.5 py-0.5">
-                    <svg className="h-3 w-3 text-[#be123c]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="flex items-center gap-0.5 rounded-md bg-[var(--background-rose)] px-1.5 py-0.5">
+                    <svg className="h-3 w-3 text-[var(--content-rose)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                     </svg>
-                    <span className="text-xs font-medium leading-4 text-[#be123c]">-1</span>
-                    <span className="text-[10px] font-medium leading-4 text-[#b91c1c]">/vs last mo</span>
+                    <span className="text-xs font-medium leading-4 text-[var(--content-rose)]">-1</span>
+                    <span className="text-[10px] font-medium leading-4 text-[var(--content-red)]">/vs last mo</span>
                   </div>
                 </div>
               </div>
@@ -323,37 +323,37 @@ export default function MainContent() {
                 >
                   <defs>
                     <linearGradient id="colorValue" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="5%" stopColor="#14b8a6" stopOpacity={0.3} />
-                      <stop offset="95%" stopColor="#14b8a6" stopOpacity={0} />
+                      <stop offset="5%" stopColor="var(--teal-secondary)" stopOpacity={0.3} />
+                      <stop offset="95%" stopColor="var(--teal-secondary)" stopOpacity={0} />
                     </linearGradient>
                   </defs>
-                  <CartesianGrid strokeDasharray="3 3" vertical={true} horizontal={true} stroke="#F1F1F2" />
+                  <CartesianGrid strokeDasharray="3 3" vertical={true} horizontal={true} stroke="var(--background-tertiary)" />
                   <XAxis
                     dataKey="year"
-                    tick={{ fontSize: 10, fill: '#71717A' }}
+                    tick={{ fontSize: 10, fill: 'var(--content-secondary)' }}
                     axisLine={false}
                     tickLine={false}
                     dy={10}
                   />
                   <YAxis
-                    tick={{ fontSize: 10, fill: '#71717A' }}
+                    tick={{ fontSize: 10, fill: 'var(--content-secondary)' }}
                     axisLine={false}
                     tickLine={false}
                     domain={[0, 200]}
                     ticks={[0, 50, 100, 150, 200]}
                   />
                   <Tooltip
-                    contentStyle={{ borderRadius: '8px', border: '1px solid #E4E4E7' }}
-                    itemStyle={{ color: '#09090B', fontWeight: 600 }}
+                    contentStyle={{ borderRadius: '8px', border: '1px solid var(--border-secondary)' }}
+                    itemStyle={{ color: 'var(--content-primary)', fontWeight: 600 }}
                   />
                   <Area
                     type="monotone"
                     dataKey="value"
-                    stroke="#14b8a6"
+                    stroke="var(--teal-secondary)"
                     strokeWidth={2}
                     fillOpacity={1}
                     fill="url(#colorValue)"
-                    dot={{ fill: "#14b8a6", stroke: "#fff", strokeWidth: 2, r: 4 }}
+                    dot={{ fill: "var(--teal-secondary)", stroke: "#fff", strokeWidth: 2, r: 4 }}
                   />
                 </AreaChart>
               </ResponsiveContainer>
@@ -386,7 +386,7 @@ export default function MainContent() {
                     endAngle={0}
                     innerRadius="110%"
                     outerRadius="140%"
-                    fill="#E4E4E7"
+                    fill="var(--border-secondary)"
                     dataKey="value"
                     stroke="none"
                     isAnimationActive={false}
@@ -412,8 +412,8 @@ export default function MainContent() {
                   </Pie>
                   <defs>
                     <linearGradient id="gaugeGradient" x1="0" y1="0" x2="1" y2="0">
-                      <stop offset="0%" stopColor="#14b8a6" />
-                      <stop offset="100%" stopColor="#0f766e" />
+                      <stop offset="0%" stopColor="var(--teal-secondary)" />
+                      <stop offset="100%" stopColor="var(--teal-primary)" />
                     </linearGradient>
                   </defs>
                 </PieChart>
@@ -428,7 +428,7 @@ export default function MainContent() {
 
           {/* Widget 3: Dealers by Edition */}
           <div className="flex h-[316px] flex-col rounded-lg border border-contentQuaternary bg-backgroundPrimary p-6">
-            <div className="mb-4 text-base font-semibold leading-6 text-[#131313]">Dealers by Edition</div>
+            <div className="mb-4 text-base font-semibold leading-6 text-[var(--content-primary)]">Dealers by Edition</div>
             <div className="mb-4 flex items-center border-b border-contentQuaternary">
               {(["Daily", "Weekly", "Monthly", "Yearly"] as const).map((tab) => (
                 <button
@@ -450,8 +450,8 @@ export default function MainContent() {
                 }[editionTab];
                 return ["Standard", "Premium", "Enterprise", "Basic"].map((type) => (
                   <div key={type} className="relative flex h-8 items-center rounded bg-gradient-to-r from-teal-500 to-teal-50 px-3" style={{ width: widths[type.toLowerCase() as keyof typeof widths] }}>
-                    <span className="flex-1 text-sm font-medium leading-5 text-[#131313]">{type}</span>
-                    <span className="text-xs font-medium leading-4 text-[#131313]">
+                    <span className="flex-1 text-sm font-medium leading-5 text-[var(--content-primary)]">{type}</span>
+                    <span className="text-xs font-medium leading-4 text-[var(--content-primary)]">
                       {type === "Standard" ? "120k" : type === "Premium" ? "80k" : type === "Enterprise" ? "50k" : "30k"}
                     </span>
                   </div>

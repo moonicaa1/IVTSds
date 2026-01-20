@@ -23,8 +23,11 @@ import {
   UserGroupIcon,
   TruckIcon,
   ChartBarIcon,
-  PlusIcon
+  PlusIcon,
+  SunIcon,
+  MoonIcon
 } from "@heroicons/react/24/outline";
+import { useTheme } from "@/lib/contexts/ThemeContext";
 
 // 국기 SVG 컴포넌트
 function FlagIcon({ code }: { code: string }) {
@@ -59,6 +62,7 @@ function FlagIcon({ code }: { code: string }) {
 }
 
 export default function Navbar() {
+  const { theme, toggleTheme } = useTheme();
   const [languageDropdownOpen, setLanguageDropdownOpen] = useState(false);
   const [userDropdownOpen, setUserDropdownOpen] = useState(false);
   const [searchDropdownOpen, setSearchDropdownOpen] = useState(false);
@@ -361,7 +365,7 @@ export default function Navbar() {
   const searchResults = getSearchResults(searchValue);
 
   return (
-    <header className="fixed left-0 right-0 top-0 z-50 h-[60px] border-b border-[#D4D4D8] bg-[#F1F1F2]">
+    <header className="fixed left-0 right-0 top-0 z-50 h-[60px] border-b border-[var(--border-primary)] bg-[var(--background-tertiary)]">
       <div className="flex h-full items-center justify-between px-4">
         {/* Leading: Logo/Text - "DEALERS" 로고 */}
         <div className="flex w-[200px] items-center">
@@ -374,26 +378,26 @@ export default function Navbar() {
               xmlns="http://www.w3.org/2000/svg"
               className="mb-[2px] w-[90px] h-[15px]"
             >
-              <path d="M28.7656 7.99712C28.7656 7.99712 10.2204 6.74804 0 15.0728C0 15.0728 5.71638 8.21755 20.4482 6.75539C26.8259 4.22784 33.3137 1.14922 40.8229 0.267516C48.3321 -0.614188 61.2344 0.781843 68.9272 3.01549C68.9272 3.01549 55.4445 6.97581 48.2219 6.64517C53.5121 6.35127 60.2057 3.30939 60.2057 3.30939C51.4842 1.00227 45.5841 0.781843 39.2799 1.9501C32.9757 3.12571 23.0125 6.85825 23.0125 6.85825C24.2983 7.29911 28.7656 7.99712 28.7656 7.99712ZM86.8111 6.02063C86.8111 6.02063 89.3019 5.61652 90 4.55113C86.8479 5.39609 75.709 4.73482 72.2557 3.77964C67.4798 6.19698 55.2167 8.07794 45.4372 8.98169C68.9272 7.52688 84.842 0.627544 89.5811 14.4042C90.4482 9.49602 86.8111 6.01329 86.8111 6.01329V6.02063Z" fill="#71717A" />
-              <path d="M12.1379 13.7129C13.7103 11.6041 16.6272 10.1861 19.9704 10.1861C23.3135 10.1861 26.2672 11.6262 27.8322 13.757H25.7161C24.254 12.0303 21.7485 10.8914 18.905 10.8914C16.0615 10.8914 13.6001 12.0083 12.1305 13.7129H12.1379Z" fill="#71717A" />
-              <path d="M64.8207 12.6183C66.5253 10.5096 69.6921 9.09153 73.3218 9.09153C76.9515 9.09153 80.1624 10.5316 81.8596 12.6624H79.5599C77.9728 10.9358 75.2542 9.7969 72.1682 9.7969C69.0823 9.7969 66.4078 10.9137 64.8134 12.6183H64.8207Z" fill="#71717A" />
+              <path d="M28.7656 7.99712C28.7656 7.99712 10.2204 6.74804 0 15.0728C0 15.0728 5.71638 8.21755 20.4482 6.75539C26.8259 4.22784 33.3137 1.14922 40.8229 0.267516C48.3321 -0.614188 61.2344 0.781843 68.9272 3.01549C68.9272 3.01549 55.4445 6.97581 48.2219 6.64517C53.5121 6.35127 60.2057 3.30939 60.2057 3.30939C51.4842 1.00227 45.5841 0.781843 39.2799 1.9501C32.9757 3.12571 23.0125 6.85825 23.0125 6.85825C24.2983 7.29911 28.7656 7.99712 28.7656 7.99712ZM86.8111 6.02063C86.8111 6.02063 89.3019 5.61652 90 4.55113C86.8479 5.39609 75.709 4.73482 72.2557 3.77964C67.4798 6.19698 55.2167 8.07794 45.4372 8.98169C68.9272 7.52688 84.842 0.627544 89.5811 14.4042C90.4482 9.49602 86.8111 6.01329 86.8111 6.01329V6.02063Z" fill="var(--content-secondary)" />
+              <path d="M12.1379 13.7129C13.7103 11.6041 16.6272 10.1861 19.9704 10.1861C23.3135 10.1861 26.2672 11.6262 27.8322 13.757H25.7161C24.254 12.0303 21.7485 10.8914 18.905 10.8914C16.0615 10.8914 13.6001 12.0083 12.1305 13.7129H12.1379Z" fill="var(--content-secondary)" />
+              <path d="M64.8207 12.6183C66.5253 10.5096 69.6921 9.09153 73.3218 9.09153C76.9515 9.09153 80.1624 10.5316 81.8596 12.6624H79.5599C77.9728 10.9358 75.2542 9.7969 72.1682 9.7969C69.0823 9.7969 66.4078 10.9137 64.8134 12.6183H64.8207Z" fill="var(--content-secondary)" />
             </svg>
             <div className="flex items-start gap-[8px]">
               {/* DEALER */}
               <svg width="59" height="8" viewBox="0 0 59 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M9.4701 0.615097C8.92703 0.171452 7.92016 0.0328125 7.27402 0.0328125H3.05176e-06C0.753171 0.318013 1.46273 0.797309 1.46273 1.6133V7.49161H7.31366C7.94791 7.49161 8.95477 7.37673 9.47803 6.90932C9.89029 6.50529 10.0092 5.9032 10.0092 5.40409V2.10844C10.0092 1.64103 9.92596 0.987443 9.4701 0.615097ZM7.65457 5.27734C7.65457 5.56254 7.44051 5.76456 7.14717 5.76456H3.80548V1.75986H7.14717C7.43258 1.75986 7.65457 1.96188 7.65457 2.2352V5.27734Z" fill="#71717A" />
-                <path d="M13.3744 5.24453V4.30178H19.5028V2.57473H13.3586V1.71517H19.5028V0H9.56895C10.334 0.285201 11.0119 0.764497 11.0119 1.58049V5.47427H11.0317C11.0634 5.93376 11.1982 6.54773 11.5629 6.87651C12.094 7.35184 13.1643 7.45879 13.8105 7.45879H19.5147V5.73174H13.8739C13.5647 5.73174 13.3744 5.52973 13.3744 5.24453Z" fill="#71717A" />
-                <path d="M21.2076 0.0117188C21.7705 0.19393 22.2264 0.574198 22.2264 1.06934C22.2264 1.2159 22.1828 1.37831 22.1312 1.53675L20.0303 7.45863H22.3928L22.8447 6.23068H27.4827L27.9068 7.45863H30.3883L27.7284 0.0117188H21.2076ZM25.0448 4.50363V4.49571H23.483L24.5017 1.71896H25.9129L26.8762 4.50363H25.0408H25.0448Z" fill="#71717A" />
-                <path d="M33.4168 0.0117188H29.6232C30.3764 0.29692 31.0741 0.776215 31.0741 1.59221V7.4507H38.2292V5.72366H33.4168V0.0117188Z" fill="#71717A" />
-                <path d="M41.6108 5.24453V4.30178H47.7392V2.57473H41.583V1.71517H47.7392V0H37.8053C38.5703 0.285201 39.2482 0.764497 39.2482 1.58049V1.71913H39.2601V5.52577H39.272C39.3076 5.98129 39.4464 6.56358 39.7992 6.88047C40.3304 7.3558 41.4007 7.46275 42.0468 7.46275H47.7511V5.7357H42.1102C41.801 5.7357 41.6108 5.53369 41.6108 5.24849V5.24453Z" fill="#71717A" />
-                <path d="M57.9978 2.9786V2.22599C57.9978 0.487053 57.1614 0.0117188 55.3895 0.0117188H48.0322C48.7973 0.29692 49.4831 0.776215 49.4831 1.60013V7.44674H51.8258V5.1691H55.3142C56.9236 5.1691 57.9978 4.5987 57.9978 2.97464V2.9786ZM51.8258 3.45393V2.56268H51.8179V1.73481H55.1556C55.441 1.73481 55.6551 1.94871 55.6551 2.22202V2.96275C55.6551 3.24003 55.441 3.44997 55.1556 3.44997H51.8258V3.45393Z" fill="#71717A" />
-                <path d="M54.6797 5.73281L55.5042 7.44798H58.0927L57.2206 5.73281H54.6797Z" fill="#71717A" />
+                <path d="M9.4701 0.615097C8.92703 0.171452 7.92016 0.0328125 7.27402 0.0328125H3.05176e-06C0.753171 0.318013 1.46273 0.797309 1.46273 1.6133V7.49161H7.31366C7.94791 7.49161 8.95477 7.37673 9.47803 6.90932C9.89029 6.50529 10.0092 5.9032 10.0092 5.40409V2.10844C10.0092 1.64103 9.92596 0.987443 9.4701 0.615097ZM7.65457 5.27734C7.65457 5.56254 7.44051 5.76456 7.14717 5.76456H3.80548V1.75986H7.14717C7.43258 1.75986 7.65457 1.96188 7.65457 2.2352V5.27734Z" fill="var(--content-secondary)" />
+                <path d="M13.3744 5.24453V4.30178H19.5028V2.57473H13.3586V1.71517H19.5028V0H9.56895C10.334 0.285201 11.0119 0.764497 11.0119 1.58049V5.47427H11.0317C11.0634 5.93376 11.1982 6.54773 11.5629 6.87651C12.094 7.35184 13.1643 7.45879 13.8105 7.45879H19.5147V5.73174H13.8739C13.5647 5.73174 13.3744 5.52973 13.3744 5.24453Z" fill="var(--content-secondary)" />
+                <path d="M21.2076 0.0117188C21.7705 0.19393 22.2264 0.574198 22.2264 1.06934C22.2264 1.2159 22.1828 1.37831 22.1312 1.53675L20.0303 7.45863H22.3928L22.8447 6.23068H27.4827L27.9068 7.45863H30.3883L27.7284 0.0117188H21.2076ZM25.0448 4.50363V4.49571H23.483L24.5017 1.71896H25.9129L26.8762 4.50363H25.0408H25.0448Z" fill="var(--content-secondary)" />
+                <path d="M33.4168 0.0117188H29.6232C30.3764 0.29692 31.0741 0.776215 31.0741 1.59221V7.4507H38.2292V5.72366H33.4168V0.0117188Z" fill="var(--content-secondary)" />
+                <path d="M41.6108 5.24453V4.30178H47.7392V2.57473H41.583V1.71517H47.7392V0H37.8053C38.5703 0.285201 39.2482 0.764497 39.2482 1.58049V1.71913H39.2601V5.52577H39.272C39.3076 5.98129 39.4464 6.56358 39.7992 6.88047C40.3304 7.3558 41.4007 7.46275 42.0468 7.46275H47.7511V5.7357H42.1102C41.801 5.7357 41.6108 5.53369 41.6108 5.24849V5.24453Z" fill="var(--content-secondary)" />
+                <path d="M57.9978 2.9786V2.22599C57.9978 0.487053 57.1614 0.0117188 55.3895 0.0117188H48.0322C48.7973 0.29692 49.4831 0.776215 49.4831 1.60013V7.44674H51.8258V5.1691H55.3142C56.9236 5.1691 57.9978 4.5987 57.9978 2.97464V2.9786ZM51.8258 3.45393V2.56268H51.8179V1.73481H55.1556C55.441 1.73481 55.6551 1.94871 55.6551 2.22202V2.96275C55.6551 3.24003 55.441 3.44997 55.1556 3.44997H51.8258V3.45393Z" fill="var(--content-secondary)" />
+                <path d="M54.6797 5.73281L55.5042 7.44798H58.0927L57.2206 5.73281H54.6797Z" fill="var(--content-secondary)" />
               </svg>
               {/* 365 */}
               <svg width="31" height="8" viewBox="0 0 31 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M10.5998 2.10839C10.5998 1.15021 9.68291 0 8.51183 0H0C0.766706 0.288053 1.57745 0.702129 1.57745 1.57629V1.72432H7.43684C7.90527 1.72432 8.28963 1.90635 8.28963 2.27842C8.28963 2.68249 7.94932 2.88453 7.46887 2.88453H1.56544V4.63085H7.43484C7.91328 4.63085 8.2556 4.77888 8.2556 5.16295C8.2556 5.56702 7.92529 5.73705 7.44685 5.73705H1.57745V7.47137H8.4798C9.779 7.47137 10.5897 6.40718 10.5897 5.34298C10.5897 4.62885 10.0793 4.06475 9.47072 3.71468C10.0773 3.37462 10.5998 2.82052 10.5998 2.10639V2.10839Z" fill="#71717A" />
-                <path d="M19.704 3.08794C19.1175 2.60985 18.0745 2.51384 17.3819 2.51384H13.8987C13.7826 2.51384 13.6545 2.51384 13.5464 2.52384V1.74569H17.3699C17.488 1.74569 17.6682 1.81971 17.7422 1.89572L17.7963 1.93773H20.2245L20.2145 1.7877C20.1825 1.40363 20.0644 0.903539 19.692 0.605484C19.1375 0.159402 18.1166 0.009375 17.444 0.009375H9.7749C10.5416 0.297428 11.1802 0.79752 11.1802 1.60567C11.1802 2.80789 11.1902 4.36217 11.2022 5.5764C11.2022 6.06649 11.2122 6.79062 11.7247 7.19469C12.2572 7.64278 13.2701 7.7808 13.9287 7.7808H17.3799C18.0725 7.7808 19.1275 7.66478 19.702 7.19469C20.1384 6.84263 20.2345 6.19451 20.2345 5.74643V4.53221C20.2345 4.09613 20.1384 3.426 19.702 3.08394L19.704 3.08794ZM17.8824 5.5784C17.8824 5.85445 17.6802 6.06849 17.3919 6.06849H14.0468C13.7586 6.06849 13.5564 5.85645 13.5564 5.5784V4.70624C13.5564 4.43019 13.7486 4.24815 14.0468 4.24815H17.3919C17.6902 4.24815 17.8824 4.44019 17.8824 4.71624V5.5784Z" fill="#71717A" />
-                <path d="M28.7686 3.00255C28.2361 2.67249 27.2552 2.61848 26.6907 2.61848H24.1544C24.0263 2.61848 23.8241 2.59648 23.6639 2.54447C23.5138 2.48046 23.4397 2.39444 23.4397 2.28842V1.73432H29.0329V1.59629C29.0329 0.734135 29.8116 0.286053 30.5883 0H21.0855V2.38444C21.0855 2.94854 21.3618 3.64067 21.9063 3.98073C22.4168 4.30079 23.4818 4.3528 24.0363 4.3528H26.4965C26.7948 4.3528 27.0711 4.40681 27.1892 4.58684C27.2212 4.61885 27.2312 4.66086 27.2312 4.67286V5.24696C27.2312 5.54502 26.8909 5.73705 26.4965 5.73705H21.4259V7.45137H26.6987C28.2862 7.45137 29.5854 7.14331 29.5854 5.35498V4.57684C29.5854 4.00274 29.3191 3.35262 28.7646 3.00255H28.7686Z" fill="#71717A" />
+                <path d="M10.5998 2.10839C10.5998 1.15021 9.68291 0 8.51183 0H0C0.766706 0.288053 1.57745 0.702129 1.57745 1.57629V1.72432H7.43684C7.90527 1.72432 8.28963 1.90635 8.28963 2.27842C8.28963 2.68249 7.94932 2.88453 7.46887 2.88453H1.56544V4.63085H7.43484C7.91328 4.63085 8.2556 4.77888 8.2556 5.16295C8.2556 5.56702 7.92529 5.73705 7.44685 5.73705H1.57745V7.47137H8.4798C9.779 7.47137 10.5897 6.40718 10.5897 5.34298C10.5897 4.62885 10.0793 4.06475 9.47072 3.71468C10.0773 3.37462 10.5998 2.82052 10.5998 2.10639V2.10839Z" fill="var(--content-secondary)" />
+                <path d="M19.704 3.08794C19.1175 2.60985 18.0745 2.51384 17.3819 2.51384H13.8987C13.7826 2.51384 13.6545 2.51384 13.5464 2.52384V1.74569H17.3699C17.488 1.74569 17.6682 1.81971 17.7422 1.89572L17.7963 1.93773H20.2245L20.2145 1.7877C20.1825 1.40363 20.0644 0.903539 19.692 0.605484C19.1375 0.159402 18.1166 0.009375 17.444 0.009375H9.7749C10.5416 0.297428 11.1802 0.79752 11.1802 1.60567C11.1802 2.80789 11.1902 4.36217 11.2022 5.5764C11.2022 6.06649 11.2122 6.79062 11.7247 7.19469C12.2572 7.64278 13.2701 7.7808 13.9287 7.7808H17.3799C18.0725 7.7808 19.1275 7.66478 19.702 7.19469C20.1384 6.84263 20.2345 6.19451 20.2345 5.74643V4.53221C20.2345 4.09613 20.1384 3.426 19.702 3.08394L19.704 3.08794ZM17.8824 5.5784C17.8824 5.85445 17.6802 6.06849 17.3919 6.06849H14.0468C13.7586 6.06849 13.5564 5.85645 13.5564 5.5784V4.70624C13.5564 4.43019 13.7486 4.24815 14.0468 4.24815H17.3919C17.6902 4.24815 17.8824 4.44019 17.8824 4.71624V5.5784Z" fill="var(--content-secondary)" />
+                <path d="M28.7686 3.00255C28.2361 2.67249 27.2552 2.61848 26.6907 2.61848H24.1544C24.0263 2.61848 23.8241 2.59648 23.6639 2.54447C23.5138 2.48046 23.4397 2.39444 23.4397 2.28842V1.73432H29.0329V1.59629C29.0329 0.734135 29.8116 0.286053 30.5883 0H21.0855V2.38444C21.0855 2.94854 21.3618 3.64067 21.9063 3.98073C22.4168 4.30079 23.4818 4.3528 24.0363 4.3528H26.4965C26.7948 4.3528 27.0711 4.40681 27.1892 4.58684C27.2212 4.61885 27.2312 4.66086 27.2312 4.67286V5.24696C27.2312 5.54502 26.8909 5.73705 26.4965 5.73705H21.4259V7.45137H26.6987C28.2862 7.45137 29.5854 7.14331 29.5854 5.35498V4.57684C29.5854 4.00274 29.3191 3.35262 28.7646 3.00255H28.7686Z" fill="var(--content-secondary)" />
               </svg>
             </div>
           </div>
@@ -403,7 +407,7 @@ export default function Navbar() {
         <div className="flex flex-1 items-center justify-center">
           <div className="relative" ref={searchDropdownRef}>
             <div
-              className="relative h-[40px] w-[680px] cursor-text rounded-lg border border-[#D4D4D8] bg-white"
+              className="relative h-[40px] w-[680px] cursor-text rounded-lg border border-[var(--border-primary)] bg-backgroundPrimary"
               onClick={() => {
                 setSearchDropdownOpen(true);
                 searchInputRef.current?.focus();
@@ -412,7 +416,7 @@ export default function Navbar() {
               <div className="flex h-full items-center px-3">
                 {/* Search icon - 24x24 */}
                 <svg
-                  className="mr-3 h-6 w-6 flex-shrink-0 text-[#71717A]"
+                  className="mr-3 h-6 w-6 flex-shrink-0 text-[var(--content-secondary)]"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -432,13 +436,13 @@ export default function Navbar() {
                   onChange={(e) => setSearchValue(e.target.value)}
                   onFocus={() => setSearchDropdownOpen(true)}
                   placeholder="Please enter your search term"
-                  className="flex-1 text-sm font-medium text-[#71717A] outline-none placeholder:text-[#71717A]"
+                  className="flex-1 text-sm font-medium text-[var(--content-secondary)] outline-none placeholder:text-[var(--content-secondary)]"
                 />
                 {/* Action icons - 20x20 each */}
                 <div className="ml-3 flex gap-2">
                   {/* Viewfinder icon */}
                   <svg
-                    className="h-5 w-5 flex-shrink-0 text-[#71717A]"
+                    className="h-5 w-5 flex-shrink-0 text-[var(--content-secondary)]"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -458,7 +462,7 @@ export default function Navbar() {
                   </svg>
                   {/* Microphone icon */}
                   <svg
-                    className="h-5 w-5 flex-shrink-0 text-[#71717A]"
+                    className="h-5 w-5 flex-shrink-0 text-[var(--content-secondary)]"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -474,9 +478,9 @@ export default function Navbar() {
               </div>
             </div>
 
-            {/* Search Dropdown Menu - Figma: 680px × 312px, rounded-md (6px), bg #FFFFFF */}
+            {/* Search Dropdown Menu - Figma: 680px × 312px, rounded-md (6px), bg var(--background-primary) */}
             {searchDropdownOpen && (
-              <div className="absolute left-0 top-[calc(100%+8px)] z-[60] w-[680px] rounded-md border border-[#E4E4E7] bg-white p-1 shadow-lg">
+              <div className="absolute left-0 top-[calc(100%+8px)] z-[60] w-[680px] rounded-md border border-[var(--border-secondary)] bg-backgroundPrimary p-1 shadow-lg">
                 {/* AI Intelligent Response 알림 - 검색어 2글자 이상일 때만 표시 */}
                 {searchValue.trim().length >= 2 && (
                   <>
@@ -512,7 +516,7 @@ export default function Navbar() {
                         {getAISuggestionButton(searchValue) && (
                           <button
                             type="button"
-                            className="flex-shrink-0 rounded-md bg-white px-3 py-1.5 text-sm font-semibold text-[#0F766E] hover:bg-[#E6FFFA]"
+                            className="flex-shrink-0 rounded-md bg-backgroundPrimary px-3 py-1.5 text-sm font-semibold text-[#0F766E] hover:bg-[#E6FFFA]"
                           >
                             {getAISuggestionButton(searchValue)}
                           </button>
@@ -523,7 +527,7 @@ export default function Navbar() {
                     {/* AI 검색 결과 표시 */}
                     {searchResults.length > 0 && (
                       <div className="mb-2 max-h-[300px] overflow-y-auto">
-                        <div className="mb-1 px-2 text-xs font-semibold text-[#A1A1AA]">
+                        <div className="mb-1 px-2 text-xs font-semibold text-[var(--content-tertiary)]">
                           Search Results
                         </div>
                         <div className="space-y-1">
@@ -531,26 +535,26 @@ export default function Navbar() {
                             <button
                               key={index}
                               type="button"
-                              className="flex w-full items-start gap-3 rounded-md px-2 py-2 text-left hover:bg-[#FAFAFA]"
+                              className="flex w-full items-start gap-3 rounded-md px-2 py-2 text-left hover:bg-[var(--background-secondary)]"
                             >
                               {/* Icon */}
-                              <div className="mt-0.5 flex h-4 w-4 flex-shrink-0 items-center justify-center text-[#71717A]">
+                              <div className="mt-0.5 flex h-4 w-4 flex-shrink-0 items-center justify-center text-[var(--content-secondary)]">
                                 {getIcon(result.icon)}
                               </div>
                               <div className="flex-1 min-w-0">
-                                <div className="mb-0.5 text-sm font-medium text-[#09090B]">
+                                <div className="mb-0.5 text-sm font-medium text-[var(--content-primary)]">
                                   {result.title}
                                 </div>
-                                <div className="text-xs text-[#71717A]">
+                                <div className="text-xs text-[var(--content-secondary)]">
                                   {result.description}
                                 </div>
-                                <div className="mt-0.5 text-xs text-[#A1A1AA]">
+                                <div className="mt-0.5 text-xs text-[var(--content-tertiary)]">
                                   {result.path}
                                 </div>
                               </div>
                               {/* Relevance indicator */}
                               <div className="flex-shrink-0">
-                                <div className="text-xs font-medium text-[#71717A]">
+                                <div className="text-xs font-medium text-[var(--content-secondary)]">
                                   {result.relevance}%
                                 </div>
                               </div>
@@ -565,18 +569,18 @@ export default function Navbar() {
                 {/* Recently open 섹션 - 검색어가 없을 때만 표시 */}
                 {!searchValue.trim() && (
                   <div className="mb-1 px-2 py-1">
-                    <div className="mb-1 px-2 text-xs font-semibold text-[#A1A1AA]">
+                    <div className="mb-1 px-2 text-xs font-semibold text-[var(--content-tertiary)]">
                       Recently open
                     </div>
                     {recentSearches.map((item, index) => (
                       <button
                         key={index}
                         type="button"
-                        className="flex h-8 w-full items-center gap-2 rounded-md px-2 text-left text-xs font-semibold text-[#09090B] hover:bg-[#FAFAFA]"
+                        className="flex h-8 w-full items-center gap-2 rounded-md px-2 text-left text-xs font-semibold text-[var(--content-primary)] hover:bg-[var(--background-secondary)]"
                       >
                         {/* Clock icon - 16x16 */}
                         <svg
-                          className="h-4 w-4 flex-shrink-0 text-[#09090B]"
+                          className="h-4 w-4 flex-shrink-0 text-[var(--content-primary)]"
                           fill="none"
                           stroke="currentColor"
                           strokeWidth={1.5}
@@ -596,21 +600,21 @@ export default function Navbar() {
 
                 {/* Quick Actions 섹션 */}
                 <div className="px-2 py-1">
-                  <div className="mb-1 px-2 text-xs font-semibold text-[#A1A1AA]">
+                  <div className="mb-1 px-2 text-xs font-semibold text-[var(--content-tertiary)]">
                     Quick Actions
                   </div>
                   {quickActions.map((action, index) => (
                     <button
                       key={index}
                       type="button"
-                      className={`flex h-8 w-full items-center justify-between rounded-md px-2 text-left text-xs font-semibold text-[#09090B] hover:bg-[#FAFAFA] ${index === 0 ? "bg-black/5" : ""
+                      className={`flex h-8 w-full items-center justify-between rounded-md px-2 text-left text-xs font-semibold text-[var(--content-primary)] hover:bg-[var(--background-secondary)] ${index === 0 ? "bg-black/5" : ""
                         }`}
                     >
                       <div className="flex items-center gap-2">
                         {/* Icon - 16x16 */}
                         {action.icon === "building-office-2" && (
                           <svg
-                            className="h-4 w-4 flex-shrink-0 text-[#09090B]"
+                            className="h-4 w-4 flex-shrink-0 text-[var(--content-primary)]"
                             fill="none"
                             stroke="currentColor"
                             strokeWidth={1.5}
@@ -625,7 +629,7 @@ export default function Navbar() {
                         )}
                         {action.icon === "user-plus" && (
                           <svg
-                            className="h-4 w-4 flex-shrink-0 text-[#09090B]"
+                            className="h-4 w-4 flex-shrink-0 text-[var(--content-primary)]"
                             fill="none"
                             stroke="currentColor"
                             strokeWidth={1.5}
@@ -640,7 +644,7 @@ export default function Navbar() {
                         )}
                         {action.icon === "arrow-up-tray" && (
                           <svg
-                            className="h-4 w-4 flex-shrink-0 text-[#09090B]"
+                            className="h-4 w-4 flex-shrink-0 text-[var(--content-primary)]"
                             fill="none"
                             stroke="currentColor"
                             strokeWidth={1.5}
@@ -655,7 +659,7 @@ export default function Navbar() {
                         )}
                         {action.icon === "lock-closed" && (
                           <svg
-                            className="h-4 w-4 flex-shrink-0 text-[#09090B]"
+                            className="h-4 w-4 flex-shrink-0 text-[var(--content-primary)]"
                             fill="none"
                             stroke="currentColor"
                             strokeWidth={1.5}
@@ -672,7 +676,7 @@ export default function Navbar() {
                       </div>
                       {/* Arrow icon - 16x16 */}
                       <svg
-                        className="h-4 w-4 flex-shrink-0 text-[#09090B]"
+                        className="h-4 w-4 flex-shrink-0 text-[var(--content-primary)]"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -694,23 +698,35 @@ export default function Navbar() {
 
         {/* Trailing: Language, Divider, Alert, User Profile */}
         <div className="flex items-center gap-4">
+          {/* Theme Toggle Switch */}
+          <button
+            onClick={toggleTheme}
+            className="flex h-9 w-9 items-center justify-center rounded-lg border border-borderPrimary bg-backgroundPrimary hover:bg-backgroundTertiary transition-all duration-300 shadow-sm"
+            aria-label="Toggle theme"
+          >
+            {theme === "light" ? (
+              <MoonIcon className="h-5 w-5 text-contentSecondary" />
+            ) : (
+              <SunIcon className="h-5 w-5 text-contentSecondary" />
+            )}
+          </button>
           {/* Language Selector with Dropdown */}
           <div className="relative" ref={languageDropdownRef}>
             <button
               type="button"
               onClick={() => setLanguageDropdownOpen(!languageDropdownOpen)}
-              className="flex h-[36px] w-[150px] items-center justify-between rounded-lg border border-[#D4D4D8] bg-[#F1F1F2] px-4"
+              className="flex h-[36px] w-[150px] items-center justify-between rounded-lg border border-borderPrimary bg-backgroundTertiary px-4"
             >
               <div className="flex items-center gap-2">
                 {/* Flag icon - 16x16 */}
                 <FlagIcon code={selectedLanguage.code} />
-                <div className="text-sm font-medium text-[#09090B]">
+                <div className="text-sm font-medium text-contentPrimary">
                   {selectedLanguage.name}
                 </div>
               </div>
               {/* Chevron icon - 20x20 */}
               <svg
-                className="h-5 w-5 flex-shrink-0 text-[#09090B]"
+                className="h-5 w-5 flex-shrink-0 text-contentPrimary"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -724,9 +740,9 @@ export default function Navbar() {
               </svg>
             </button>
 
-            {/* Language Dropdown Menu - Figma: 149px × 116px, rounded-xl (12px), bg #F1F1F2 */}
+            {/* Language Dropdown Menu - Figma: 149px × 116px, rounded-xl (12px), bg var(--background-tertiary) */}
             {languageDropdownOpen && (
-              <div className="absolute right-0 top-[calc(100%+8px)] z-[60] w-[149px] rounded-xl border border-[#D4D4D8] bg-[#F1F1F2] p-1">
+              <div className="absolute right-0 top-[calc(100%+8px)] z-[60] w-[149px] rounded-xl border border-borderPrimary bg-backgroundTertiary p-1">
                 {languages.map((lang) => (
                   <button
                     key={lang.code}
@@ -736,8 +752,8 @@ export default function Navbar() {
                       setLanguageDropdownOpen(false);
                     }}
                     className={`flex h-[36px] w-full items-center gap-2 rounded-lg px-4 text-left text-sm font-medium ${selectedLanguage.code === lang.code
-                      ? "bg-white text-[#09090B]"
-                      : "bg-transparent text-[#09090B] hover:bg-white/50"
+                      ? "bg-backgroundPrimary text-contentPrimary"
+                      : "bg-transparent text-contentPrimary hover:bg-backgroundPrimary/50"
                       }`}
                   >
                     {/* Flag icon - 16x16 */}
@@ -746,7 +762,7 @@ export default function Navbar() {
                     {/* Check icon for selected - 16x16 */}
                     {selectedLanguage.code === lang.code && (
                       <svg
-                        className="h-4 w-4 flex-shrink-0 text-[#09090B]"
+                        className="h-4 w-4 flex-shrink-0 text-[var(--content-primary)]"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -765,8 +781,8 @@ export default function Navbar() {
             )}
           </div>
 
-          {/* Divider - Figma: 1px × 24px, color #D4D4D8 */}
-          <div className="h-8 w-px bg-[#D4D4D8]" />
+          {/* Divider - Figma: 1px × 24px, color var(--border-primary) */}
+          <div className="h-8 w-px bg-[var(--border-primary)]" />
 
           {/* Alert with Dropdown - Figma: 24px × 24px */}
           <div className="relative" ref={alertDropdownRef}>
@@ -777,7 +793,7 @@ export default function Navbar() {
             >
               {/* Alert icon - 16x16 */}
               <svg
-                className="h-4 w-4 text-[#09090B]"
+                className="h-4 w-4 text-[var(--content-primary)]"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -793,12 +809,12 @@ export default function Navbar() {
               <div className="absolute right-0 top-0 h-1 w-1 rounded-full bg-[#EF4444] ring-1 ring-[#F4F4F5]" />
             </button>
 
-            {/* Alert Dropdown Menu - Figma: 296px × 448px, rounded-xl (12px), bg #FAFAFA */}
+            {/* Alert Dropdown Menu - Figma: 296px × 448px, rounded-xl (12px), bg var(--background-secondary) */}
             {alertDropdownOpen && (
-              <div className="absolute right-0 top-[calc(100%+8px)] z-[60] w-[296px] rounded-xl border border-[#D4D4D8] bg-[#FAFAFA] p-1 shadow-lg">
+              <div className="absolute right-0 top-[calc(100%+8px)] z-[60] w-[296px] rounded-xl border border-[var(--border-primary)] bg-[var(--background-secondary)] p-1 shadow-lg">
                 {/* Notification 헤더 */}
                 <div className="px-4 py-2">
-                  <div className="text-sm font-semibold text-[#A1A1AA]">
+                  <div className="text-sm font-semibold text-[var(--content-tertiary)]">
                     Notification
                   </div>
                 </div>
@@ -808,11 +824,11 @@ export default function Navbar() {
                   {/* New Reservation Request */}
                   <button
                     type="button"
-                    className="flex w-full items-start gap-3 rounded-lg bg-white px-4 py-3 text-left hover:bg-[#FAFAFA]"
+                    className="flex w-full items-start gap-3 rounded-lg bg-backgroundPrimary px-4 py-3 text-left hover:bg-[var(--background-secondary)]"
                   >
                     {/* Icon - exclamation-circle, 16x16 */}
                     <svg
-                      className="mt-0.5 h-4 w-4 flex-shrink-0 text-[#09090B]"
+                      className="mt-0.5 h-4 w-4 flex-shrink-0 text-[var(--content-primary)]"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -825,13 +841,13 @@ export default function Navbar() {
                       />
                     </svg>
                     <div className="flex-1">
-                      <div className="mb-1 text-sm font-medium text-[#09090B]">
+                      <div className="mb-1 text-sm font-medium text-[var(--content-primary)]">
                         New Reservation Request
                       </div>
-                      <div className="mb-1 text-xs text-[#71717A]">
+                      <div className="mb-1 text-xs text-[var(--content-secondary)]">
                         Alice Johnson requested a test drive for IONIQ 5.
                       </div>
-                      <div className="text-xs text-[#A1A1AA]">10 min ago</div>
+                      <div className="text-xs text-[var(--content-tertiary)]">10 min ago</div>
                     </div>
                     {/* Arrow icon - 16x16 (invisible) */}
                     <div className="h-4 w-4 flex-shrink-0" />
@@ -840,10 +856,10 @@ export default function Navbar() {
                   {/* Inventory Threshold Alert */}
                   <button
                     type="button"
-                    className="flex w-full items-start gap-3 rounded-lg border border-[#E4E4E7] bg-white px-4 py-3 text-left hover:bg-[#FAFAFA]"
+                    className="flex w-full items-start gap-3 rounded-lg border border-[var(--border-secondary)] bg-backgroundPrimary px-4 py-3 text-left hover:bg-[var(--background-secondary)]"
                   >
                     <svg
-                      className="mt-0.5 h-4 w-4 flex-shrink-0 text-[#09090B]"
+                      className="mt-0.5 h-4 w-4 flex-shrink-0 text-[var(--content-primary)]"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -856,14 +872,14 @@ export default function Navbar() {
                       />
                     </svg>
                     <div className="flex-1">
-                      <div className="mb-1 text-sm font-medium text-[#09090B]">
+                      <div className="mb-1 text-sm font-medium text-[var(--content-primary)]">
                         Inventory Threshold Alert
                       </div>
-                      <div className="mb-1 text-xs text-[#71717A]">
+                      <div className="mb-1 text-xs text-[var(--content-secondary)]">
                         Genesis GV80 (Vik Black) stock is running low (Only 1
                         left).
                       </div>
-                      <div className="text-xs text-[#A1A1AA]">10 min ago</div>
+                      <div className="text-xs text-[var(--content-tertiary)]">10 min ago</div>
                     </div>
                     <div className="h-4 w-4 flex-shrink-0" />
                   </button>
@@ -871,10 +887,10 @@ export default function Navbar() {
                   {/* Service Completed */}
                   <button
                     type="button"
-                    className="flex w-full items-start gap-3 rounded-lg bg-white px-4 py-3 text-left hover:bg-[#FAFAFA]"
+                    className="flex w-full items-start gap-3 rounded-lg bg-backgroundPrimary px-4 py-3 text-left hover:bg-[var(--background-secondary)]"
                   >
                     <svg
-                      className="mt-0.5 h-4 w-4 flex-shrink-0 text-[#09090B]"
+                      className="mt-0.5 h-4 w-4 flex-shrink-0 text-[var(--content-primary)]"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -887,13 +903,13 @@ export default function Navbar() {
                       />
                     </svg>
                     <div className="flex-1">
-                      <div className="mb-1 text-sm font-medium text-[#09090B]">
+                      <div className="mb-1 text-sm font-medium text-[var(--content-primary)]">
                         Service Completed
                       </div>
-                      <div className="mb-1 text-xs text-[#71717A]">
+                      <div className="mb-1 text-xs text-[var(--content-secondary)]">
                         Maintenance #4022 for Tucson Hybrid has been completed.
                       </div>
-                      <div className="text-xs text-[#A1A1AA]">10 min ago</div>
+                      <div className="text-xs text-[var(--content-tertiary)]">10 min ago</div>
                     </div>
                     <div className="h-4 w-4 flex-shrink-0" />
                   </button>
@@ -901,10 +917,10 @@ export default function Navbar() {
                   {/* System Update Scheduled */}
                   <button
                     type="button"
-                    className="flex w-full items-start gap-3 rounded-lg bg-white px-4 py-3 text-left hover:bg-[#FAFAFA]"
+                    className="flex w-full items-start gap-3 rounded-lg bg-backgroundPrimary px-4 py-3 text-left hover:bg-[var(--background-secondary)]"
                   >
                     <svg
-                      className="mt-0.5 h-4 w-4 flex-shrink-0 text-[#09090B]"
+                      className="mt-0.5 h-4 w-4 flex-shrink-0 text-[var(--content-primary)]"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -917,27 +933,27 @@ export default function Navbar() {
                       />
                     </svg>
                     <div className="flex-1">
-                      <div className="mb-1 text-sm font-medium text-[#09090B]">
+                      <div className="mb-1 text-sm font-medium text-[var(--content-primary)]">
                         System Update Scheduled
                       </div>
-                      <div className="mb-1 text-xs text-[#71717A]">
+                      <div className="mb-1 text-xs text-[var(--content-secondary)]">
                         Patch v4.0.2 will be installed tonight at 02:00 AM.
                       </div>
-                      <div className="text-xs text-[#A1A1AA]">10 min ago</div>
+                      <div className="text-xs text-[var(--content-tertiary)]">10 min ago</div>
                     </div>
                     <div className="h-4 w-4 flex-shrink-0" />
                   </button>
                 </div>
 
                 {/* Setting 항목 - Divider 포함 */}
-                <div className="mt-1 border-t border-[#E4E4E7] pt-1">
+                <div className="mt-1 border-t border-[var(--border-secondary)] pt-1">
                   <button
                     type="button"
-                    className="flex h-[36px] w-full items-center gap-3 rounded-lg px-4 text-left text-sm font-medium text-[#71717A] hover:bg-white"
+                    className="flex h-[36px] w-full items-center gap-3 rounded-lg px-4 text-left text-sm font-medium text-[var(--content-secondary)] hover:bg-backgroundPrimary"
                   >
                     {/* Icon - cog-8-tooth, 16x16 */}
                     <svg
-                      className="h-4 w-4 flex-shrink-0 text-[#71717A]"
+                      className="h-4 w-4 flex-shrink-0 text-[var(--content-secondary)]"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -950,7 +966,7 @@ export default function Navbar() {
                       />
                     </svg>
                     <div className="flex-1">setting</div>
-                    <span className="text-xs text-[#71717A]">⌘ O</span>
+                    <span className="text-xs text-[var(--content-secondary)]">⌘ O</span>
                   </button>
                 </div>
               </div>
@@ -967,9 +983,9 @@ export default function Navbar() {
               <div className="text-xs font-medium leading-4 text-white">D1</div>
             </button>
 
-            {/* User Profile Dropdown Menu - Figma: width/height hug, rounded-xl (12px), bg #FAFAFA */}
+            {/* User Profile Dropdown Menu - Figma: width/height hug, rounded-xl (12px), bg var(--background-secondary) */}
             {userDropdownOpen && (
-              <div className="absolute right-0 top-[calc(100%+8px)] z-[60] min-w-fit rounded-xl border border-[#D4D4D8] bg-[#FAFAFA] p-1">
+              <div className="absolute right-0 top-[calc(100%+8px)] z-[60] min-w-fit rounded-xl border border-[var(--border-primary)] bg-[var(--background-secondary)] p-1">
                 {/* Change password - Figma: width hug, height 36px */}
                 <button
                   type="button"
@@ -977,11 +993,11 @@ export default function Navbar() {
                     setUserDropdownOpen(false);
                     setModalOpen("changePassword");
                   }}
-                  className="flex h-[36px] w-full min-w-fit items-center gap-3 rounded-lg px-4 text-left text-sm font-medium text-[#09090B] hover:bg-white/50"
+                  className="flex h-[36px] w-full min-w-fit items-center gap-3 rounded-lg px-4 text-left text-sm font-medium text-[var(--content-primary)] hover:bg-backgroundPrimary/50"
                 >
                   {/* Icon - 16x16 */}
                   <svg
-                    className="h-4 w-4 flex-shrink-0 text-[#09090B]"
+                    className="h-4 w-4 flex-shrink-0 text-[var(--content-primary)]"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -995,7 +1011,7 @@ export default function Navbar() {
                   </svg>
                   <div className="flex-1 whitespace-nowrap">Change password</div>
                   {/* Shortcut - ⌘ O */}
-                  <span className="text-xs text-[#71717A] whitespace-nowrap">⌘ O</span>
+                  <span className="text-xs text-[var(--content-secondary)] whitespace-nowrap">⌘ O</span>
                 </button>
 
                 {/* Login attempts - Figma: width hug, height 36px */}
@@ -1005,10 +1021,10 @@ export default function Navbar() {
                     setUserDropdownOpen(false);
                     setModalOpen("loginAttempts");
                   }}
-                  className="flex h-[36px] w-full min-w-fit items-center gap-3 rounded-lg px-4 text-left text-sm font-medium text-[#09090B] hover:bg-white/50"
+                  className="flex h-[36px] w-full min-w-fit items-center gap-3 rounded-lg px-4 text-left text-sm font-medium text-[var(--content-primary)] hover:bg-backgroundPrimary/50"
                 >
                   <svg
-                    className="h-4 w-4 flex-shrink-0 text-[#09090B]"
+                    className="h-4 w-4 flex-shrink-0 text-[var(--content-primary)]"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -1027,7 +1043,7 @@ export default function Navbar() {
                     />
                   </svg>
                   <div className="flex-1 whitespace-nowrap">Login attempts</div>
-                  <span className="text-xs text-[#71717A] whitespace-nowrap">⌘ O</span>
+                  <span className="text-xs text-[var(--content-secondary)] whitespace-nowrap">⌘ O</span>
                 </button>
 
                 {/* Change profile picture - Figma: width hug, height 36px */}
@@ -1037,10 +1053,10 @@ export default function Navbar() {
                     setUserDropdownOpen(false);
                     setModalOpen("changeProfilePicture");
                   }}
-                  className="flex h-[36px] w-full min-w-fit items-center gap-3 rounded-lg px-4 text-left text-sm font-medium text-[#09090B] hover:bg-white/50"
+                  className="flex h-[36px] w-full min-w-fit items-center gap-3 rounded-lg px-4 text-left text-sm font-medium text-[var(--content-primary)] hover:bg-backgroundPrimary/50"
                 >
                   <svg
-                    className="h-4 w-4 flex-shrink-0 text-[#09090B]"
+                    className="h-4 w-4 flex-shrink-0 text-[var(--content-primary)]"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -1053,7 +1069,7 @@ export default function Navbar() {
                     />
                   </svg>
                   <div className="flex-1 whitespace-nowrap">Change profile picture</div>
-                  <span className="text-xs text-[#71717A] whitespace-nowrap">⌘ O</span>
+                  <span className="text-xs text-[var(--content-secondary)] whitespace-nowrap">⌘ O</span>
                 </button>
 
                 {/* My setting - Figma: width hug, height 36px */}
@@ -1063,10 +1079,10 @@ export default function Navbar() {
                     setUserDropdownOpen(false);
                     setModalOpen("mySettings");
                   }}
-                  className="flex h-[36px] w-full min-w-fit items-center gap-3 rounded-lg px-4 text-left text-sm font-medium text-[#09090B] hover:bg-white/50"
+                  className="flex h-[36px] w-full min-w-fit items-center gap-3 rounded-lg px-4 text-left text-sm font-medium text-[var(--content-primary)] hover:bg-backgroundPrimary/50"
                 >
                   <svg
-                    className="h-4 w-4 flex-shrink-0 text-[#09090B]"
+                    className="h-4 w-4 flex-shrink-0 text-[var(--content-primary)]"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -1079,12 +1095,12 @@ export default function Navbar() {
                     />
                   </svg>
                   <div className="flex-1 whitespace-nowrap">My setting</div>
-                  <span className="text-xs text-[#71717A] whitespace-nowrap">⌘ O</span>
+                  <span className="text-xs text-[var(--content-secondary)] whitespace-nowrap">⌘ O</span>
                 </button>
 
                 {/* Divider - Figma: 높이 9px, 실제 separator 1px */}
                 <div className="my-1 flex items-center px-4">
-                  <div className="h-px flex-1 bg-[#D4D4D8]" />
+                  <div className="h-px flex-1 bg-[var(--border-primary)]" />
                 </div>
 
                 {/* Sign out - Figma: width hug, height 36px, text color #EF4444 */}
@@ -1094,7 +1110,7 @@ export default function Navbar() {
                     setUserDropdownOpen(false);
                     setModalOpen("logOut");
                   }}
-                  className="flex h-[36px] w-full min-w-fit items-center gap-3 rounded-lg px-4 text-left text-sm font-medium text-[#EF4444] hover:bg-white/50"
+                  className="flex h-[36px] w-full min-w-fit items-center gap-3 rounded-lg px-4 text-left text-sm font-medium text-[#EF4444] hover:bg-backgroundPrimary/50"
                 >
                   <svg
                     className="h-4 w-4 flex-shrink-0 text-[#EF4444]"
@@ -1110,7 +1126,7 @@ export default function Navbar() {
                     />
                   </svg>
                   <div className="flex-1 whitespace-nowrap">Sign out</div>
-                  <span className="text-xs text-[#71717A] whitespace-nowrap">⌘ O</span>
+                  <span className="text-xs text-[var(--content-secondary)] whitespace-nowrap">⌘ O</span>
                 </button>
               </div>
             )}
@@ -1129,9 +1145,9 @@ export default function Navbar() {
 
           {/* Change Password Modal */}
           {modalOpen === "changePassword" && (
-            <div className="fixed left-1/2 top-1/2 z-50 w-[720px] -translate-x-1/2 -translate-y-1/2 rounded-xl border border-[#A1A1AA] bg-white p-6">
+            <div className="fixed left-1/2 top-1/2 z-50 w-[720px] -translate-x-1/2 -translate-y-1/2 rounded-xl border border-[var(--content-tertiary)] bg-backgroundPrimary p-6">
               {/* Heading - Figma: fontSize 20, lineHeight 28, Semi Bold */}
-              <h2 className="mb-6 text-xl font-semibold leading-7 text-[#09090B]">
+              <h2 className="mb-6 text-xl font-semibold leading-7 text-[var(--content-primary)]">
                 Change password
               </h2>
 
@@ -1139,13 +1155,13 @@ export default function Navbar() {
               <div className="space-y-4">
                 {/* Current password input */}
                 <div>
-                  <label className="mb-1 block text-sm font-semibold leading-5 text-[#09090B]">
+                  <label className="mb-1 block text-sm font-semibold leading-5 text-[var(--content-primary)]">
                     Current password
                   </label>
-                  <div className="relative rounded-lg border border-[#D4D4D8] bg-white">
+                  <div className="relative rounded-lg border border-[var(--border-primary)] bg-backgroundPrimary">
                     <div className="flex items-center px-3 py-2">
                       <svg
-                        className="mr-2 h-4 w-4 text-[#71717A]"
+                        className="mr-2 h-4 w-4 text-[var(--content-secondary)]"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -1160,10 +1176,10 @@ export default function Navbar() {
                       <input
                         type="password"
                         placeholder="place holder"
-                        className="flex-1 text-base font-medium leading-6 text-[#A1A1AA] outline-none placeholder:text-[#A1A1AA]"
+                        className="flex-1 text-base font-medium leading-6 text-[var(--content-tertiary)] outline-none placeholder:text-[var(--content-tertiary)]"
                       />
                       <svg
-                        className="ml-2 h-4 w-4 text-[#71717A]"
+                        className="ml-2 h-4 w-4 text-[var(--content-secondary)]"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -1177,20 +1193,20 @@ export default function Navbar() {
                       </svg>
                     </div>
                   </div>
-                  <p className="mt-1 text-sm font-medium leading-5 text-[#A1A1AA]">
+                  <p className="mt-1 text-sm font-medium leading-5 text-[var(--content-tertiary)]">
                     Helper text
                   </p>
                 </div>
 
                 {/* New password input */}
                 <div>
-                  <label className="mb-1 block text-sm font-semibold leading-5 text-[#09090B]">
+                  <label className="mb-1 block text-sm font-semibold leading-5 text-[var(--content-primary)]">
                     New password
                   </label>
-                  <div className="relative rounded-lg border border-[#D4D4D8] bg-white">
+                  <div className="relative rounded-lg border border-[var(--border-primary)] bg-backgroundPrimary">
                     <div className="flex items-center px-3 py-2">
                       <svg
-                        className="mr-2 h-4 w-4 text-[#71717A]"
+                        className="mr-2 h-4 w-4 text-[var(--content-secondary)]"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -1205,10 +1221,10 @@ export default function Navbar() {
                       <input
                         type="password"
                         placeholder="place holder"
-                        className="flex-1 text-base font-medium leading-6 text-[#A1A1AA] outline-none placeholder:text-[#A1A1AA]"
+                        className="flex-1 text-base font-medium leading-6 text-[var(--content-tertiary)] outline-none placeholder:text-[var(--content-tertiary)]"
                       />
                       <svg
-                        className="ml-2 h-4 w-4 text-[#71717A]"
+                        className="ml-2 h-4 w-4 text-[var(--content-secondary)]"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -1222,20 +1238,20 @@ export default function Navbar() {
                       </svg>
                     </div>
                   </div>
-                  <p className="mt-1 text-sm font-medium leading-5 text-[#A1A1AA]">
+                  <p className="mt-1 text-sm font-medium leading-5 text-[var(--content-tertiary)]">
                     Helper text
                   </p>
                 </div>
 
                 {/* New password (repeat) input */}
                 <div>
-                  <label className="mb-1 block text-sm font-semibold leading-5 text-[#09090B]">
+                  <label className="mb-1 block text-sm font-semibold leading-5 text-[var(--content-primary)]">
                     New password(repeat)
                   </label>
-                  <div className="relative rounded-lg border border-[#D4D4D8] bg-white">
+                  <div className="relative rounded-lg border border-[var(--border-primary)] bg-backgroundPrimary">
                     <div className="flex items-center px-3 py-2">
                       <svg
-                        className="mr-2 h-4 w-4 text-[#71717A]"
+                        className="mr-2 h-4 w-4 text-[var(--content-secondary)]"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -1250,10 +1266,10 @@ export default function Navbar() {
                       <input
                         type="password"
                         placeholder="place holder"
-                        className="flex-1 text-base font-medium leading-6 text-[#A1A1AA] outline-none placeholder:text-[#A1A1AA]"
+                        className="flex-1 text-base font-medium leading-6 text-[var(--content-tertiary)] outline-none placeholder:text-[var(--content-tertiary)]"
                       />
                       <svg
-                        className="ml-2 h-4 w-4 text-[#71717A]"
+                        className="ml-2 h-4 w-4 text-[var(--content-secondary)]"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -1267,7 +1283,7 @@ export default function Navbar() {
                       </svg>
                     </div>
                   </div>
-                  <p className="mt-1 text-sm font-medium leading-5 text-[#A1A1AA]">
+                  <p className="mt-1 text-sm font-medium leading-5 text-[var(--content-tertiary)]">
                     Helper text
                   </p>
                 </div>
@@ -1278,7 +1294,7 @@ export default function Navbar() {
                 <button
                   type="button"
                   onClick={() => setModalOpen(null)}
-                  className="flex h-9 items-center gap-2 rounded-lg border border-[#D4D4D8] bg-white px-4 text-sm font-semibold leading-5 text-[#09090B]"
+                  className="flex h-9 items-center gap-2 rounded-lg border border-[var(--border-primary)] bg-backgroundPrimary px-4 text-sm font-semibold leading-5 text-[var(--content-primary)]"
                 >
                   Cancel
                 </button>
@@ -1307,13 +1323,13 @@ export default function Navbar() {
 
           {/* Log Out Confirmation Modal */}
           {modalOpen === "logOut" && (
-            <div className="fixed left-1/2 top-1/2 z-50 w-[513px] -translate-x-1/2 -translate-y-1/2 rounded-xl border border-[#A1A1AA] bg-white p-6">
+            <div className="fixed left-1/2 top-1/2 z-50 w-[513px] -translate-x-1/2 -translate-y-1/2 rounded-xl border border-[var(--content-tertiary)] bg-backgroundPrimary p-6">
               {/* Content */}
               <div className="mb-4">
-                <h2 className="mb-2 text-sm font-semibold leading-5 text-[#09090B]">
+                <h2 className="mb-2 text-sm font-semibold leading-5 text-[var(--content-primary)]">
                   Are you sure you want to log out?
                 </h2>
-                <p className="text-sm font-medium leading-5 text-[#A1A1AA]">
+                <p className="text-sm font-medium leading-5 text-[var(--content-tertiary)]">
                   You will be signed out of your account for security reasons.
                 </p>
               </div>
@@ -1323,7 +1339,7 @@ export default function Navbar() {
                 <button
                   type="button"
                   onClick={() => setModalOpen(null)}
-                  className="flex h-9 items-center gap-2 rounded-lg border border-[#D4D4D8] bg-white px-4 text-sm font-semibold leading-5 text-[#09090B]"
+                  className="flex h-9 items-center gap-2 rounded-lg border border-[var(--border-primary)] bg-backgroundPrimary px-4 text-sm font-semibold leading-5 text-[var(--content-primary)]"
                 >
                   Cancel
                 </button>
@@ -1344,9 +1360,9 @@ export default function Navbar() {
 
           {/* My Settings Modal */}
           {modalOpen === "mySettings" && (
-            <div className="fixed left-1/2 top-1/2 z-50 max-h-[90vh] w-[720px] -translate-x-1/2 -translate-y-1/2 overflow-y-auto rounded-xl border border-[#A1A1AA] bg-white p-6">
+            <div className="fixed left-1/2 top-1/2 z-50 max-h-[90vh] w-[720px] -translate-x-1/2 -translate-y-1/2 overflow-y-auto rounded-xl border border-[var(--content-tertiary)] bg-backgroundPrimary p-6">
               {/* Heading */}
-              <h2 className="mb-6 text-xl font-semibold leading-7 text-[#09090B]">
+              <h2 className="mb-6 text-xl font-semibold leading-7 text-[var(--content-primary)]">
                 My settings
               </h2>
 
@@ -1354,13 +1370,13 @@ export default function Navbar() {
               <div className="space-y-4">
                 {/* Name input */}
                 <div>
-                  <label className="mb-1 block text-sm font-semibold leading-5 text-[#09090B]">
+                  <label className="mb-1 block text-sm font-semibold leading-5 text-[var(--content-primary)]">
                     Name*
                   </label>
-                  <div className="relative rounded-lg border border-[#D4D4D8] bg-white">
+                  <div className="relative rounded-lg border border-[var(--border-primary)] bg-backgroundPrimary">
                     <div className="flex items-center px-3 py-2">
                       <svg
-                        className="mr-2 h-4 w-4 text-[#71717A]"
+                        className="mr-2 h-4 w-4 text-[var(--content-secondary)]"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -1375,10 +1391,10 @@ export default function Navbar() {
                       <input
                         type="text"
                         defaultValue="admin"
-                        className="flex-1 text-base font-medium leading-6 text-[#09090B] outline-none"
+                        className="flex-1 text-base font-medium leading-6 text-[var(--content-primary)] outline-none"
                       />
                       <svg
-                        className="ml-2 h-4 w-4 text-[#71717A]"
+                        className="ml-2 h-4 w-4 text-[var(--content-secondary)]"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -1392,20 +1408,20 @@ export default function Navbar() {
                       </svg>
                     </div>
                   </div>
-                  <p className="mt-1 text-sm font-medium leading-5 text-[#A1A1AA]">
+                  <p className="mt-1 text-sm font-medium leading-5 text-[var(--content-tertiary)]">
                     Helper text
                   </p>
                 </div>
 
                 {/* Surname input */}
                 <div>
-                  <label className="mb-1 block text-sm font-semibold leading-5 text-[#09090B]">
+                  <label className="mb-1 block text-sm font-semibold leading-5 text-[var(--content-primary)]">
                     Surname*
                   </label>
-                  <div className="relative rounded-lg border border-[#D4D4D8] bg-white">
+                  <div className="relative rounded-lg border border-[var(--border-primary)] bg-backgroundPrimary">
                     <div className="flex items-center px-3 py-2">
                       <svg
-                        className="mr-2 h-4 w-4 text-[#71717A]"
+                        className="mr-2 h-4 w-4 text-[var(--content-secondary)]"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -1420,10 +1436,10 @@ export default function Navbar() {
                       <input
                         type="text"
                         defaultValue="admin"
-                        className="flex-1 text-base font-medium leading-6 text-[#09090B] outline-none"
+                        className="flex-1 text-base font-medium leading-6 text-[var(--content-primary)] outline-none"
                       />
                       <svg
-                        className="ml-2 h-4 w-4 text-[#71717A]"
+                        className="ml-2 h-4 w-4 text-[var(--content-secondary)]"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -1437,20 +1453,20 @@ export default function Navbar() {
                       </svg>
                     </div>
                   </div>
-                  <p className="mt-1 text-sm font-medium leading-5 text-[#A1A1AA]">
+                  <p className="mt-1 text-sm font-medium leading-5 text-[var(--content-tertiary)]">
                     Helper text
                   </p>
                 </div>
 
                 {/* Email address input */}
                 <div>
-                  <label className="mb-1 block text-sm font-semibold leading-5 text-[#09090B]">
+                  <label className="mb-1 block text-sm font-semibold leading-5 text-[var(--content-primary)]">
                     Email address*
                   </label>
-                  <div className="relative rounded-lg border border-[#D4D4D8] bg-white">
+                  <div className="relative rounded-lg border border-[var(--border-primary)] bg-backgroundPrimary">
                     <div className="flex items-center px-3 py-2">
                       <svg
-                        className="mr-2 h-4 w-4 text-[#71717A]"
+                        className="mr-2 h-4 w-4 text-[var(--content-secondary)]"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -1465,10 +1481,10 @@ export default function Navbar() {
                       <input
                         type="email"
                         defaultValue="admin@test.com"
-                        className="flex-1 text-base font-medium leading-6 text-[#09090B] outline-none"
+                        className="flex-1 text-base font-medium leading-6 text-[var(--content-primary)] outline-none"
                       />
                       <svg
-                        className="ml-2 h-4 w-4 text-[#71717A]"
+                        className="ml-2 h-4 w-4 text-[var(--content-secondary)]"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -1482,20 +1498,20 @@ export default function Navbar() {
                       </svg>
                     </div>
                   </div>
-                  <p className="mt-1 text-sm font-medium leading-5 text-[#A1A1AA]">
+                  <p className="mt-1 text-sm font-medium leading-5 text-[var(--content-tertiary)]">
                     Helper text
                   </p>
                 </div>
 
                 {/* Email address (second) input */}
                 <div>
-                  <label className="mb-1 block text-sm font-semibold leading-5 text-[#09090B]">
+                  <label className="mb-1 block text-sm font-semibold leading-5 text-[var(--content-primary)]">
                     Email address
                   </label>
-                  <div className="relative rounded-lg border border-[#D4D4D8] bg-white">
+                  <div className="relative rounded-lg border border-[var(--border-primary)] bg-backgroundPrimary">
                     <div className="flex items-center px-3 py-2">
                       <svg
-                        className="mr-2 h-4 w-4 text-[#71717A]"
+                        className="mr-2 h-4 w-4 text-[var(--content-secondary)]"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -1510,10 +1526,10 @@ export default function Navbar() {
                       <input
                         type="email"
                         defaultValue="admin@test.com"
-                        className="flex-1 text-base font-medium leading-6 text-[#09090B] outline-none"
+                        className="flex-1 text-base font-medium leading-6 text-[var(--content-primary)] outline-none"
                       />
                       <svg
-                        className="ml-2 h-4 w-4 text-[#71717A]"
+                        className="ml-2 h-4 w-4 text-[var(--content-secondary)]"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -1527,20 +1543,20 @@ export default function Navbar() {
                       </svg>
                     </div>
                   </div>
-                  <p className="mt-1 text-sm font-medium leading-5 text-[#A1A1AA]">
+                  <p className="mt-1 text-sm font-medium leading-5 text-[var(--content-tertiary)]">
                     Helper text
                   </p>
                 </div>
 
                 {/* Phone number input */}
                 <div>
-                  <label className="mb-1 block text-sm font-semibold leading-5 text-[#09090B]">
+                  <label className="mb-1 block text-sm font-semibold leading-5 text-[var(--content-primary)]">
                     Phone number
                   </label>
-                  <div className="relative rounded-lg border border-[#D4D4D8] bg-white">
+                  <div className="relative rounded-lg border border-[var(--border-primary)] bg-backgroundPrimary">
                     <div className="flex items-center px-3 py-2">
                       <svg
-                        className="mr-2 h-4 w-4 text-[#71717A]"
+                        className="mr-2 h-4 w-4 text-[var(--content-secondary)]"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -1555,10 +1571,10 @@ export default function Navbar() {
                       <input
                         type="tel"
                         placeholder="placeholder"
-                        className="flex-1 text-base font-medium leading-6 text-[#A1A1AA] outline-none placeholder:text-[#A1A1AA]"
+                        className="flex-1 text-base font-medium leading-6 text-[var(--content-tertiary)] outline-none placeholder:text-[var(--content-tertiary)]"
                       />
                       <svg
-                        className="ml-2 h-4 w-4 text-[#71717A]"
+                        className="ml-2 h-4 w-4 text-[var(--content-secondary)]"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -1572,20 +1588,20 @@ export default function Navbar() {
                       </svg>
                     </div>
                   </div>
-                  <p className="mt-1 text-sm font-medium leading-5 text-[#A1A1AA]">
+                  <p className="mt-1 text-sm font-medium leading-5 text-[var(--content-tertiary)]">
                     Helper text
                   </p>
                 </div>
 
                 {/* User id(Login id) input */}
                 <div>
-                  <label className="mb-1 block text-sm font-semibold leading-5 text-[#09090B]">
+                  <label className="mb-1 block text-sm font-semibold leading-5 text-[var(--content-primary)]">
                     User id(Login id)*
                   </label>
-                  <div className="relative rounded-lg border border-[#D4D4D8] bg-white">
+                  <div className="relative rounded-lg border border-[var(--border-primary)] bg-backgroundPrimary">
                     <div className="flex items-center px-3 py-2">
                       <svg
-                        className="mr-2 h-4 w-4 text-[#71717A]"
+                        className="mr-2 h-4 w-4 text-[var(--content-secondary)]"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -1600,10 +1616,10 @@ export default function Navbar() {
                       <input
                         type="text"
                         defaultValue="admin"
-                        className="flex-1 text-base font-medium leading-6 text-[#09090B] outline-none"
+                        className="flex-1 text-base font-medium leading-6 text-[var(--content-primary)] outline-none"
                       />
                       <svg
-                        className="ml-2 h-4 w-4 text-[#71717A]"
+                        className="ml-2 h-4 w-4 text-[var(--content-secondary)]"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -1617,20 +1633,20 @@ export default function Navbar() {
                       </svg>
                     </div>
                   </div>
-                  <p className="mt-1 text-sm font-medium leading-5 text-[#A1A1AA]">
+                  <p className="mt-1 text-sm font-medium leading-5 text-[var(--content-tertiary)]">
                     Helper text
                   </p>
                 </div>
 
                 {/* Timezone input */}
                 <div>
-                  <label className="mb-1 block text-sm font-semibold leading-5 text-[#09090B]">
+                  <label className="mb-1 block text-sm font-semibold leading-5 text-[var(--content-primary)]">
                     Timezone
                   </label>
-                  <div className="relative rounded-lg border border-[#D4D4D8] bg-white">
+                  <div className="relative rounded-lg border border-[var(--border-primary)] bg-backgroundPrimary">
                     <div className="flex items-center px-3 py-2">
                       <svg
-                        className="mr-2 h-4 w-4 text-[#71717A]"
+                        className="mr-2 h-4 w-4 text-[var(--content-secondary)]"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -1645,10 +1661,10 @@ export default function Navbar() {
                       <input
                         type="text"
                         defaultValue="Default[(UTC+07:00) Bangkok, Hanoi, Jakarta]"
-                        className="flex-1 text-base font-medium leading-6 text-[#09090B] outline-none"
+                        className="flex-1 text-base font-medium leading-6 text-[var(--content-primary)] outline-none"
                       />
                       <svg
-                        className="ml-2 h-4 w-4 text-[#71717A]"
+                        className="ml-2 h-4 w-4 text-[var(--content-secondary)]"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -1662,7 +1678,7 @@ export default function Navbar() {
                       </svg>
                     </div>
                   </div>
-                  <p className="mt-1 text-sm font-medium leading-5 text-[#A1A1AA]">
+                  <p className="mt-1 text-sm font-medium leading-5 text-[var(--content-tertiary)]">
                     Helper text
                   </p>
                 </div>
@@ -1673,7 +1689,7 @@ export default function Navbar() {
                 <button
                   type="button"
                   onClick={() => setModalOpen(null)}
-                  className="flex h-9 items-center gap-2 rounded-lg border border-[#D4D4D8] bg-white px-4 text-sm font-semibold leading-5 text-[#09090B]"
+                  className="flex h-9 items-center gap-2 rounded-lg border border-[var(--border-primary)] bg-backgroundPrimary px-4 text-sm font-semibold leading-5 text-[var(--content-primary)]"
                 >
                   Cancel
                 </button>
@@ -1702,9 +1718,9 @@ export default function Navbar() {
 
           {/* Login Attempts Modal */}
           {modalOpen === "loginAttempts" && (
-            <div className="fixed left-1/2 top-1/2 z-50 max-h-[90vh] w-[720px] -translate-x-1/2 -translate-y-1/2 overflow-y-auto rounded-xl border border-[#A1A1AA] bg-white p-6">
+            <div className="fixed left-1/2 top-1/2 z-50 max-h-[90vh] w-[720px] -translate-x-1/2 -translate-y-1/2 overflow-y-auto rounded-xl border border-[var(--content-tertiary)] bg-backgroundPrimary p-6">
               {/* Heading */}
-              <h2 className="mb-6 text-xl font-semibold leading-7 text-[#09090B]">
+              <h2 className="mb-6 text-xl font-semibold leading-7 text-[var(--content-primary)]">
                 Login attempts
               </h2>
 
@@ -1712,15 +1728,15 @@ export default function Navbar() {
               <div className="space-y-4">
                 {/* Search and Filter */}
                 <div className="flex gap-2">
-                  <div className="flex-1 rounded-lg border border-[#E4E4E7] bg-white">
+                  <div className="flex-1 rounded-lg border border-[var(--border-secondary)] bg-backgroundPrimary">
                     <div className="flex items-center px-3 py-2">
                       <input
                         type="text"
                         placeholder="Search"
-                        className="flex-1 text-sm font-semibold leading-5 text-[#71717A] outline-none placeholder:text-[#71717A]"
+                        className="flex-1 text-sm font-semibold leading-5 text-[var(--content-secondary)] outline-none placeholder:text-[var(--content-secondary)]"
                       />
                       <svg
-                        className="h-5 w-5 text-[#71717A]"
+                        className="h-5 w-5 text-[var(--content-secondary)]"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -1734,19 +1750,19 @@ export default function Navbar() {
                       </svg>
                     </div>
                   </div>
-                  <div className="h-9 w-[94px] rounded-lg border border-[#E4E4E7] bg-white"></div>
+                  <div className="h-9 w-[94px] rounded-lg border border-[var(--border-secondary)] bg-backgroundPrimary"></div>
                 </div>
 
                 {/* Table */}
-                <div className="rounded-lg border border-[#D4D4D8]">
+                <div className="rounded-lg border border-[var(--border-primary)]">
                   {/* Table Header */}
-                  <div className="flex border-b border-[#D4D4D8]">
-                    <div className="flex w-[160px] items-center gap-2 border-r border-[#D4D4D8] px-6 py-2.5">
-                      <span className="text-sm font-semibold leading-5 text-[#71717A]">
+                  <div className="flex border-b border-[var(--border-primary)]">
+                    <div className="flex w-[160px] items-center gap-2 border-r border-[var(--border-primary)] px-6 py-2.5">
+                      <span className="text-sm font-semibold leading-5 text-[var(--content-secondary)]">
                         Vehicle
                       </span>
                       <svg
-                        className="h-5 w-5 text-[#71717A]"
+                        className="h-5 w-5 text-[var(--content-secondary)]"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -1759,12 +1775,12 @@ export default function Navbar() {
                         />
                       </svg>
                     </div>
-                    <div className="flex w-[216px] items-center gap-2 border-r border-[#D4D4D8] px-6 py-2.5">
-                      <span className="text-sm font-semibold leading-5 text-[#71717A]">
+                    <div className="flex w-[216px] items-center gap-2 border-r border-[var(--border-primary)] px-6 py-2.5">
+                      <span className="text-sm font-semibold leading-5 text-[var(--content-secondary)]">
                         Email
                       </span>
                       <svg
-                        className="h-5 w-5 text-[#71717A]"
+                        className="h-5 w-5 text-[var(--content-secondary)]"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -1778,11 +1794,11 @@ export default function Navbar() {
                       </svg>
                     </div>
                     <div className="flex flex-1 items-center gap-2 px-6 py-2.5">
-                      <span className="text-sm font-semibold leading-5 text-[#71717A]">
+                      <span className="text-sm font-semibold leading-5 text-[var(--content-secondary)]">
                         Email
                       </span>
                       <svg
-                        className="h-5 w-5 text-[#71717A]"
+                        className="h-5 w-5 text-[var(--content-secondary)]"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -1805,30 +1821,30 @@ export default function Navbar() {
                   ].map((row, index) => (
                     <div
                       key={index}
-                      className={`flex border-b border-[#E4E4E7] last:border-b-0 ${index % 2 === 1 ? "bg-[#FAFAFA]" : ""
+                      className={`flex border-b border-[var(--border-secondary)] last:border-b-0 ${index % 2 === 1 ? "bg-[var(--background-secondary)]" : ""
                         }`}
                     >
-                      <div className="w-[160px] border-r border-[#E4E4E7] px-6 py-4">
-                        <div className="text-sm font-semibold leading-5 text-[#09090B]">
+                      <div className="w-[160px] border-r border-[var(--border-secondary)] px-6 py-4">
+                        <div className="text-sm font-semibold leading-5 text-[var(--content-primary)]">
                           {row.vehicle}
                         </div>
-                        <div className="text-sm font-medium leading-5 text-[#71717A]">
+                        <div className="text-sm font-medium leading-5 text-[var(--content-secondary)]">
                           jane.cooper@example.com
                         </div>
                       </div>
-                      <div className="w-[216px] border-r border-[#E4E4E7] px-6 py-4">
-                        <div className="text-sm font-semibold leading-5 text-[#09090B]">
+                      <div className="w-[216px] border-r border-[var(--border-secondary)] px-6 py-4">
+                        <div className="text-sm font-semibold leading-5 text-[var(--content-primary)]">
                           {row.email}
                         </div>
-                        <div className="text-sm font-medium leading-5 text-[#71717A]">
+                        <div className="text-sm font-medium leading-5 text-[var(--content-secondary)]">
                           jane.cooper@example.com
                         </div>
                       </div>
                       <div className="flex-1 px-6 py-4">
-                        <div className="text-sm font-semibold leading-5 text-[#09090B]">
+                        <div className="text-sm font-semibold leading-5 text-[var(--content-primary)]">
                           {row.time}
                         </div>
-                        <div className="text-sm font-medium leading-5 text-[#71717A]">
+                        <div className="text-sm font-medium leading-5 text-[var(--content-secondary)]">
                           jane.cooper@example.com
                         </div>
                       </div>
@@ -1842,7 +1858,7 @@ export default function Navbar() {
                 <button
                   type="button"
                   onClick={() => setModalOpen(null)}
-                  className="flex h-9 items-center gap-2 rounded-lg border border-[#D4D4D8] bg-white px-4 text-sm font-semibold leading-5 text-[#09090B]"
+                  className="flex h-9 items-center gap-2 rounded-lg border border-[var(--border-primary)] bg-backgroundPrimary px-4 text-sm font-semibold leading-5 text-[var(--content-primary)]"
                 >
                   Cancel
                 </button>
@@ -1852,9 +1868,9 @@ export default function Navbar() {
 
           {/* Change Profile Picture Modal */}
           {modalOpen === "changeProfilePicture" && (
-            <div className="fixed left-1/2 top-1/2 z-50 max-h-[90vh] w-[720px] -translate-x-1/2 -translate-y-1/2 overflow-y-auto rounded-xl border border-[#A1A1AA] bg-white p-6">
+            <div className="fixed left-1/2 top-1/2 z-50 max-h-[90vh] w-[720px] -translate-x-1/2 -translate-y-1/2 overflow-y-auto rounded-xl border border-[var(--content-tertiary)] bg-backgroundPrimary p-6">
               {/* Heading */}
-              <h2 className="mb-6 text-xl font-semibold leading-7 text-[#09090B]">
+              <h2 className="mb-6 text-xl font-semibold leading-7 text-[var(--content-primary)]">
                 Change profile picture
               </h2>
 
@@ -1862,10 +1878,10 @@ export default function Navbar() {
               <div className="space-y-4">
                 {/* Document File Label */}
                 <div>
-                  <label className="mb-1 block text-sm font-semibold leading-5 text-[#09090B]">
+                  <label className="mb-1 block text-sm font-semibold leading-5 text-[var(--content-primary)]">
                     Document File
                   </label>
-                  <p className="text-sm font-medium leading-5 text-[#A1A1AA]">
+                  <p className="text-sm font-medium leading-5 text-[var(--content-tertiary)]">
                     Helper text
                   </p>
                 </div>
@@ -1874,7 +1890,7 @@ export default function Navbar() {
                 <div className="space-y-4">
                   {/* Open File Button */}
                   <div className="flex gap-2">
-                    <div className="flex-1 rounded-lg border border-[#D4D4D8] bg-white px-3 py-2">
+                    <div className="flex-1 rounded-lg border border-[var(--border-primary)] bg-backgroundPrimary px-3 py-2">
                       <input
                         type="text"
                         placeholder="Choose file"
@@ -1927,7 +1943,7 @@ export default function Navbar() {
                 <button
                   type="button"
                   onClick={() => setModalOpen(null)}
-                  className="flex h-9 items-center gap-2 rounded-lg border border-borderPrimary bg-white px-4 text-sm font-semibold leading-5 text-contentPrimary"
+                  className="flex h-9 items-center gap-2 rounded-lg border border-borderPrimary bg-backgroundPrimary px-4 text-sm font-semibold leading-5 text-contentPrimary"
                 >
                   Cancel
                 </button>

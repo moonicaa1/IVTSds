@@ -77,10 +77,10 @@ export default function ContentHeader({ onAddDealer }: ContentHeaderProps) {
                     <button
                         type="button"
                         onClick={() => toggleFavorite("Dealers")}
-                        className="flex h-8 w-8 items-center justify-center rounded-lg border border-borderPrimary bg-backgroundPrimary hover:bg-gray-50 transition-colors shadow-sm"
+                        className="flex h-8 w-8 items-center justify-center rounded-lg border border-borderPrimary bg-backgroundPrimary hover:bg-backgroundSecondary transition-colors shadow-sm"
                     >
                         {favorites.has("Dealers") ? (
-                            <BookmarkIconSolid className="h-4 w-4 text-[#0f766e]" />
+                            <BookmarkIconSolid className="h-4 w-4 text-tealPrimary" />
                         ) : (
                             <BookmarkIconOutline className="h-4 w-4 text-contentTertiary" />
                         )}

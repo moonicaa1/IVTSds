@@ -93,7 +93,24 @@ function getDarkSemanticColors() {
   return colors;
 }
 
+/**
+ * Semantic 색상 토큰을 CSS 변수 참조로 변환 (Tailwind용)
+ */
+function getSemanticColorVars() {
+  const vars: Record<string, string> = {};
+  const colors = getLightSemanticColors(); // 필드 목록을 가져오기 위해 라이트 모드 사용
+
+  Object.keys(colors).forEach(key => {
+    // camelCase를 kebab-case로 변환 (예: contentPrimary -> content-primary)
+    const cssVarName = key.replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase();
+    vars[key] = `var(--${cssVarName})`;
+  });
+
+  return vars;
+}
+
 export const spacingTokens = getSpacingTokens();
 export const borderRadiusTokens = getBorderRadiusTokens();
 export const lightSemanticColors = getLightSemanticColors();
 export const darkSemanticColors = getDarkSemanticColors();
+export const semanticColorVars = getSemanticColorVars();

@@ -10,6 +10,7 @@ import Navbar from "@/components/layout/Navbar";
 import Sidebar from "@/components/layout/Sidebar";
 import ContentWrapper from "@/components/layout/ContentWrapper";
 import { SidebarProvider } from "@/lib/contexts/SidebarContext";
+import { ThemeProvider } from "@/lib/contexts/ThemeContext";
 
 /**
  * @component AppShell
@@ -28,20 +29,22 @@ export default function AppShell({
   children: React.ReactNode;
 }) {
   return (
-    <SidebarProvider>
-      <div className="flex h-screen w-screen flex-col bg-[#FAFAFA]">
-        {/* Navbar (Header) - fixed 위치 - 공통 컴포넌트 */}
-        <Navbar />
+    <ThemeProvider>
+      <SidebarProvider>
+        <div className="flex h-screen w-screen flex-col bg-backgroundSecondary transition-colors duration-300">
+          {/* Navbar (Header) - fixed 위치 - 공통 컴포넌트 */}
+          <Navbar />
 
-        {/* Contents Box */}
-        <div className="flex h-screen pt-[60px]">
-          {/* Left Navigation (Sidebar) - fixed 위치 - 공통 컴포넌트 */}
-          <Sidebar />
+          {/* Contents Box */}
+          <div className="flex h-[calc(100vh-60px)] mt-[60px]">
+            {/* Left Navigation (Sidebar) - fixed 위치 - 공통 컴포넌트 */}
+            <Sidebar />
 
-          {/* Container (메인 콘텐츠) - overflow-y-auto - 사이드바 상태에 따라 동적 마진 */}
-          <ContentWrapper>{children}</ContentWrapper>
+            {/* Container (메인 콘텐츠) - overflow-y-auto - 사이드바 상태에 따라 동적 마진 */}
+            <ContentWrapper>{children}</ContentWrapper>
+          </div>
         </div>
-      </div>
-    </SidebarProvider>
+      </SidebarProvider>
+    </ThemeProvider>
   );
 }

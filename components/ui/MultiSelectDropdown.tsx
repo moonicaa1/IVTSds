@@ -109,7 +109,7 @@ export default function MultiSelectDropdown({
                 type="button"
                 onClick={() => setIsOpen(!isOpen)}
                 className={`
-                    flex items-center gap-1.5 rounded-lg bg-white px-2 h-10 text-sm transition-colors hover:bg-backgroundSecondary
+                    flex items-center gap-1.5 rounded-lg bg-backgroundPrimary px-2 h-10 text-sm transition-colors hover:bg-backgroundSecondary
                     text-contentPrimary
                 `}
             >
@@ -137,7 +137,7 @@ export default function MultiSelectDropdown({
 
             {/* Dropdown Content */}
             {isOpen && (
-                <div className="absolute left-0 top-full z-50 mt-1 min-w-full w-max rounded-xl border border-borderSecondary bg-white p-2 shadow-[0px_4px_6px_-4px_rgba(0,0,0,0.1),0px_10px_15px_-3px_rgba(0,0,0,0.1)]">
+                <div className="absolute left-0 top-full z-50 mt-1 min-w-full w-max rounded-xl border border-borderSecondary bg-backgroundPrimary p-2 shadow-[0px_4px_6px_-4px_rgba(0,0,0,0.1),0px_10px_15px_-3px_rgba(0,0,0,0.1)]">
                     <div className="flex flex-col gap-1">
                         {normalizedOptions.map((option) => (
                             <label

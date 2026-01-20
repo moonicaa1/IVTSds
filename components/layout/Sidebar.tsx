@@ -56,9 +56,9 @@ const iconMap: Record<string, React.ElementType> = {
 
 const LocationIndicator = () => (
   <div className="relative h-2.5 w-2.5">
-    <div className="absolute inset-0 rounded-full bg-[#14b8a6] opacity-30"></div>
-    <div className="absolute inset-[2px] rounded-full bg-[#14b8a6] opacity-60"></div>
-    <div className="absolute inset-1 rounded-full bg-[#14b8a6]"></div>
+    <div className="absolute inset-0 rounded-full bg-tealPrimary opacity-30"></div>
+    <div className="absolute inset-[2px] rounded-full bg-tealPrimary opacity-60"></div>
+    <div className="absolute inset-1 rounded-full bg-tealPrimary"></div>
   </div>
 );
 
@@ -310,7 +310,7 @@ export default function Sidebar() {
                   label: subSubItem.label,
                   parentLabel: subItem.label, // or item.label
                   icon: item.icon, // Inherit usage icon
-                  href: (subSubSubItem as any).href,
+                  href: (subSubItem as any).href,
                 });
               }
             });
@@ -350,7 +350,7 @@ export default function Sidebar() {
                     key={index}
                     type="button"
                     onClick={() => setIsOpen(true)}
-                    className={`flex h-10 w-10 items-center justify-center rounded-lg text-contentPrimary transition-colors bg-transparent hover:bg-black/10`}
+                    className={`flex h-10 w-10 items-center justify-center rounded-lg text-contentPrimary transition-colors bg-transparent hover:bg-backgroundQuaternary`}
                     title={item.label}
                   >
                     {Icon && <Icon className="w-5 h-5" />}
@@ -392,7 +392,7 @@ export default function Sidebar() {
                           onClick={(e) => toggleFavorite(fav.label)}
                           title="Remove from Favorites"
                         >
-                          <BookmarkIconSolid className="w-4 h-4 text-[#0f766e]" />
+                          <BookmarkIconSolid className="w-4 h-4 text-tealPrimary" />
                         </button>
                       </div>
                     ))

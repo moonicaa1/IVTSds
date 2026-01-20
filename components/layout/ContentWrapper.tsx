@@ -17,7 +17,7 @@ export default function ContentWrapper({
 
   return (
     <main
-      className={`flex-1 overflow-y-auto bg-[#FAFAFA] transition-all duration-300 ${isOpen ? "ml-[292px]" : "ml-[72px]"
+      className={`flex-1 overflow-y-auto bg-backgroundSecondary transition-all duration-300 ${isOpen ? "ml-[292px]" : "ml-[72px]"
         }`}
     >
       {children}

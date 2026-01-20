@@ -2,10 +2,12 @@ import type { Config } from "tailwindcss";
 import {
   spacingTokens,
   borderRadiusTokens,
-  lightSemanticColors
+  lightSemanticColors,
+  semanticColorVars
 } from "./lib/utils/tokens";
 
 const config: Config = {
+  darkMode: "class",
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -14,8 +16,9 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        ...lightSemanticColors,
-        // Override or extend specific semantic colors if needed
+        ...semanticColorVars,
+        tealPrimary: "var(--tealPrimary)",
+        tealSecondary: "var(--teal-secondary)",
       },
       spacing: {
         ...spacingTokens,

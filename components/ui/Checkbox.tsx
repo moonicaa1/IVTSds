@@ -47,22 +47,22 @@ export default function Checkbox({
             disabled={disabled}
             onClick={handleChange}
             className={`
-                group flex h-4 w-4 items-center justify-center rounded border transition-shadow focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-[#14b8a6]/20
+                group flex h-4 w-4 items-center justify-center rounded border transition-shadow focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-[var(--teal-secondary)]/20
                 ${disabled ? "cursor-not-allowed opacity-50 bg-backgroundSecondary border-borderPrimary" : "cursor-pointer"}
                 ${checked === true || checked === "indeterminate"
-                    ? "bg-[#14b8a6] border-[#14b8a6] text-white"
-                    : "bg-white border-borderPrimary hover:border-contentSecondary"
+                    ? "bg-[var(--teal-secondary)] border-[var(--teal-secondary)] text-[var(--content-inverse-primary)]"
+                    : "bg-backgroundPrimary border-borderPrimary hover:border-contentSecondary"
                 }
                 ${className}
             `}
         >
             {checked === true && (
-                <svg width="10" height="8" viewBox="0 0 10 8" fill="none" className="block text-white">
+                <svg width="10" height="8" viewBox="0 0 10 8" fill="none" className="block text-[var(--content-inverse-primary)]">
                     <path d="M9 1L3.5 6.5L1 4" stroke="currentColor" strokeWidth="1.6666" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
             )}
             {checked === "indeterminate" && (
-                <div className="h-0.5 w-2 bg-white rounded-full" />
+                <div className="h-0.5 w-2 bg-backgroundPrimary rounded-full" />
             )}
         </button>
     );

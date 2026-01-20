@@ -59,11 +59,11 @@ export function ContentModal({
 
             {/* Modal Container */}
             <div
-                className="relative flex w-full max-w-[720px] flex-col overflow-hidden rounded-[12px] bg-white shadow-[0px_8px_10px_-6px_rgba(0,0,0,0.1),0px_20px_25px_-5px_rgba(0,0,0,0.1)] transition-all"
+                className="relative flex w-full max-w-[720px] flex-col overflow-hidden rounded-[12px] bg-backgroundPrimary shadow-[0px_8px_10px_-6px_rgba(0,0,0,0.1),0px_20px_25px_-5px_rgba(0,0,0,0.1)] transition-all"
                 style={{ maxHeight: "80vh" }}
             >
                 {/* Dialog Head */}
-                <div className="flex shrink-0 items-center justify-between border-b border-borderSecondary bg-white p-6 shadow-[0px_1px_2px_-1px_rgba(0,0,0,0.1),0px_1px_3px_0px_rgba(0,0,0,0.1)]">
+                <div className="flex shrink-0 items-center justify-between border-b border-borderSecondary bg-backgroundPrimary p-6 shadow-[0px_1px_2px_-1px_rgba(0,0,0,0.1),0px_1px_3px_0px_rgba(0,0,0,0.1)]">
                     <h2 className="text-xl font-semibold leading-7 tracking-[-0.5px] text-contentPrimary">
                         {title}
                     </h2>
@@ -82,7 +82,7 @@ export function ContentModal({
 
                 {/* Dialog Bottom */}
                 {footer && (
-                    <div className="flex shrink-0 items-center justify-end gap-3 border-t border-borderSecondary bg-white p-6">
+                    <div className="flex shrink-0 items-center justify-end gap-3 border-t border-borderSecondary bg-backgroundPrimary p-6">
                         {footer}
                     </div>
                 )}
@@ -143,7 +143,7 @@ export function ConfirmModal({
             />
 
             {/* Modal Container */}
-            <div className="relative flex w-full max-w-[480px] flex-col gap-4 rounded-[12px] border border-borderPrimary bg-white p-6 shadow-[0px_4px_6px_-4px_rgba(0,0,0,0.1),0px_10px_15px_-3px_rgba(0,0,0,0.1)] transition-all">
+            <div className="relative flex w-full max-w-[480px] flex-col gap-4 rounded-[12px] border border-borderPrimary bg-backgroundPrimary p-6 shadow-[0px_4px_6px_-4px_rgba(0,0,0,0.1),0px_10px_15px_-3px_rgba(0,0,0,0.1)] transition-all">
                 {/* Text Content */}
                 <div className="flex flex-col gap-3">
                     <h2 className="text-xl font-semibold leading-7 tracking-[-0.5px] text-contentPrimary">
