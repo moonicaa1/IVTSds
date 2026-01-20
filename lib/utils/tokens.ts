@@ -5,7 +5,7 @@
  */
 
 // 토큰 파일 import
-import primitiveStringTokens from "../../tokens/primitiveString/Mode1.tokens.json";
+import primitiveStringTokens from "../../tokens/primitiveString/Mode 1.tokens.json";
 import lightSemanticTokens from "../../tokens/semantic/Light.tokens.json";
 import darkSemanticTokens from "../../tokens/semantic/Dark.tokens.json";
 

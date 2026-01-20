@@ -11,7 +11,7 @@
 
 "use client";
 
-import MainContent from "../pages/MainContent";
+import MainContent from "../pages/dealer/MainContent";
 
 export default function HomePage() {
   return <MainContent />;
