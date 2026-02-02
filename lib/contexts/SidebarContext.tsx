@@ -38,8 +38,14 @@ export function SidebarProvider({ children }: { children: ReactNode }) {
 
 export function useSidebar() {
   const context = useContext(SidebarContext);
+  // Return a safe fallback during build/SSR if context is missing
   if (context === undefined) {
-    throw new Error("useSidebar must be used within a SidebarProvider");
+    return {
+      isOpen: true,
+      setIsOpen: () => { },
+      favorites: new Set<string>(),
+      toggleFavorite: () => { },
+    };
   }
   return context;
 }

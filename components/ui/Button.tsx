@@ -23,6 +23,7 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
     leftIcon?: React.ReactNode;
     rightIcon?: React.ReactNode;
     iconOnly?: boolean;
+    href?: string;
 }
 
 /**
@@ -35,7 +36,7 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
  * <Button variant="outline" leftIcon={<RefreshIcon />}>새로고침</Button>
  */
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-    ({ className = "", variant = "default", size = "base", leftIcon, rightIcon, iconOnly, children, disabled, ...props }, ref) => {
+    ({ className = "", variant = "default", size = "base", leftIcon, rightIcon, iconOnly, children, disabled, href, ...props }, ref) => {
 
         // Base styles
         const baseStyles = "inline-flex items-center justify-center rounded-lg font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none";
@@ -63,7 +64,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
             // Default (Primary Action): using backgroundInversePrimary (Black) text-contentInversePrimary (White)
             default: "bg-backgroundInversePrimary text-contentInversePrimary hover:bg-backgroundInverseSecondary active:bg-backgroundInverseTertiary border border-transparent",
 
-            // Outline (Secondary Action): bg-backgroundPrimary (White), border-borderPrimary ?? (Need to check border tokens, usually borderPrimary is light gray)
+            // Outline (Secondary Action): bg-backgroundPrimary (White), border-borderPrimary?  ?(Need to check border tokens, usually borderPrimary is light gray)
             // Using border-[#E4E4E7] (Zinc-200) which matches backgroundQuaternary or borderPrimary? 
             // Let's stick to safe semantic mapping or keep hex if token is unclear.
             // Verified backgroundPrimary = #FFFFFF. borderPrimary is usually #E4E4E7 or #D4D4D8.
@@ -75,10 +76,26 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
         const finalSizeClass = iconOnly ? iconOnlyStyles[size] : sizeStyles[size];
 
+        const combinedClassName = `${baseStyles} ${variantStyles[variant]} ${finalSizeClass} ${className}`;
+
+        if (href) {
+            return (
+                <a
+                    href={href}
+                    className={combinedClassName}
+                    {...(props as React.AnchorHTMLAttributes<HTMLAnchorElement>)}
+                >
+                    {leftIcon && <span className={`flex-shrink-0 ${children ? "mr-1.5" : ""}`}>{leftIcon}</span>}
+                    {children}
+                    {rightIcon && <span className={`flex-shrink-0 ${children ? "ml-1.5" : ""}`}>{rightIcon}</span>}
+                </a>
+            );
+        }
+
         return (
             <button
                 ref={ref}
-                className={`${baseStyles} ${variantStyles[variant]} ${finalSizeClass} ${className}`}
+                className={combinedClassName}
                 disabled={disabled}
                 {...props}
             >

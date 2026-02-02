@@ -75,3 +75,11 @@ export const Disabled: Story = {
         children: 'Disabled Button',
     },
 };
+
+export const Link: Story = {
+    args: {
+        variant: 'outline',
+        children: 'Go to Localhost:3001',
+        href: 'http://localhost:3001',
+    },
+};
