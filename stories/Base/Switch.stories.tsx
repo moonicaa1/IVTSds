@@ -30,6 +30,11 @@ const meta: Meta<typeof Switch> = {
             control: "boolean",
             description: "Disables interaction.",
         },
+        className: {
+            control: "text",
+            description: "Additional CSS classes.",
+        },
+        onChange: { action: "toggled" },
     },
 };
 

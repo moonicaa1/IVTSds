@@ -50,6 +50,15 @@ const meta: Meta<typeof Button> = {
             control: "boolean",
             description: "If true, renders as a square button optimized for icons.",
         },
+        href: {
+            control: "text",
+            description: "If provided, renders the button as an <a> tag.",
+        },
+        className: {
+            control: "text",
+            description: "Additional CSS classes for custom styling.",
+        },
+        onClick: { action: "clicked" },
     },
 };
 

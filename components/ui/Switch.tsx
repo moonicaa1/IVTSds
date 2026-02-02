@@ -20,6 +20,7 @@ export interface SwitchProps {
     checked: boolean;
     onChange: (checked: boolean) => void;
     disabled?: boolean;
+    className?: string;
 }
 
 /**
@@ -35,9 +36,10 @@ export default function Switch({
     checked,
     onChange,
     disabled = false,
+    className = "",
 }: SwitchProps) {
     return (
-        <div className="flex items-center gap-3">
+        <div className={`flex items-center gap-3 ${className}`}>
             <button
                 type="button"
                 role="switch"

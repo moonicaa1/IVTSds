@@ -37,9 +37,17 @@ const meta: Meta<typeof Badge> = {
             control: "boolean",
             description: "Whether to show a removal button (X).",
         },
+        onRemove: {
+            action: "removed",
+            description: "Callback fired when the removal button is clicked.",
+        },
         children: {
             control: "text",
             description: "The content of the badge.",
+        },
+        className: {
+            control: "text",
+            description: "Additional CSS classes for custom styling.",
         },
     },
 };

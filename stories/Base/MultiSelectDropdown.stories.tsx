@@ -18,6 +18,9 @@ const meta: Meta<typeof MultiSelectDropdown> = {
     title: "Base Components/MultiSelectDropdown",
     component: MultiSelectDropdown,
     tags: ["autodocs"],
+    parameters: {
+        layout: "fullscreen",
+    },
     argTypes: {
         label: {
             control: "text",
@@ -27,6 +30,11 @@ const meta: Meta<typeof MultiSelectDropdown> = {
             control: "text",
             description: "Default text when no items are selected.",
         },
+        className: {
+            control: "text",
+            description: "Additional CSS classes.",
+        },
+        onChange: { action: "changed" },
     },
 };
 

@@ -17,10 +17,17 @@ import React, { useState } from "react";
  */
 const meta: Meta<typeof Table> = {
     title: "Base Components/Table",
-    component: Table,
-    tags: ["autodocs"],
-    parameters: {
-        layout: "fullscreen",
+    argTypes: {
+        searchPlaceholder: {
+            control: "text",
+            description: "Placeholder text for the search bar.",
+        },
+        itemsPerPage: {
+            control: "number",
+            description: "Number of rows per page.",
+        },
+        onPageChange: { action: "pageChanged" },
+        onRowCountChange: { action: "rowCountChanged" },
     },
 };
 

@@ -34,6 +34,11 @@ const meta: Meta<typeof Select> = {
             control: "boolean",
             description: "Disables interaction.",
         },
+        className: {
+            control: "text",
+            description: "Additional CSS classes.",
+        },
+        onChange: { action: "changed" },
     },
 };
 

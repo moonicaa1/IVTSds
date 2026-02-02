@@ -21,23 +21,36 @@ const meta: Meta<typeof Input> = {
     argTypes: {
         label: {
             control: "text",
-            description: "The text displayed above the input field.",
+            description: "Input label text.",
+        },
+        placeholder: {
+            control: "text",
+            description: "Placeholder text when empty.",
+        },
+        type: {
+            control: "select",
+            options: ["text", "password", "email", "number", "search", "tel", "url"],
+            description: "HTML input type.",
         },
         error: {
             control: "text",
-            description: "An error message to display below the input.",
+            description: "Error message to display.",
         },
         helperText: {
             control: "text",
-            description: "Auxiliary text to guide the user.",
+            description: "Helper text to display below the input.",
+        },
+        required: {
+            control: "boolean",
+            description: "Adds a required marker (*) to the label.",
         },
         disabled: {
             control: "boolean",
             description: "Whether the input is interactive.",
         },
-        required: {
-            control: "boolean",
-            description: "Adds a required marker (*) to the label.",
+        className: {
+            control: "text",
+            description: "Additional CSS classes for custom styling.",
         },
     },
 };
