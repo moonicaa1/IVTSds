@@ -73,31 +73,31 @@ export default function Alert({
 
     const DefaultIcon = getDefaultIcon();
 
-    // Color scheme mapping
+    // Color scheme mapping using design tokens
     const colorClasses = {
         info: {
-            container: "bg-blue-50 border-blue-200",
-            icon: "text-blue-600",
-            title: "text-blue-900",
-            description: "text-blue-700",
+            container: "bg-sky border-borderSecondary",
+            icon: "text-sky",
+            title: "text-contentPrimary",
+            description: "text-contentSecondary",
         },
         success: {
-            container: "bg-emerald-50 border-emerald-200",
-            icon: "text-emerald-600",
-            title: "text-emerald-900",
-            description: "text-emerald-700",
+            container: "bg-emerald border-borderSecondary",
+            icon: "text-emerald",
+            title: "text-contentPrimary",
+            description: "text-contentSecondary",
         },
         warning: {
-            container: "bg-amber-50 border-amber-200",
-            icon: "text-amber-600",
-            title: "text-amber-900",
-            description: "text-amber-700",
+            container: "bg-amber border-borderSecondary",
+            icon: "text-amber",
+            title: "text-contentPrimary",
+            description: "text-contentSecondary",
         },
         error: {
-            container: "bg-red-50 border-red-200",
-            icon: "text-red-600",
-            title: "text-red-900",
-            description: "text-red-700",
+            container: "bg-red border-borderSecondary",
+            icon: "text-red",
+            title: "text-contentPrimary",
+            description: "text-contentSecondary",
         },
     };
 

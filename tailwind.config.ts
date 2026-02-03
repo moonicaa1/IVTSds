@@ -19,8 +19,19 @@ const config: Config = {
     extend: {
       colors: {
         ...semanticColorVars,
-        tealPrimary: "var(--tealPrimary)",
+        tealPrimary: "var(--teal-primary)",
         tealSecondary: "var(--teal-secondary)",
+        // Alert colors
+        red: "var(--content-red)",
+        amber: "var(--content-amber)",
+        emerald: "var(--content-emerald)",
+        sky: "var(--content-sky)",
+      },
+      backgroundColor: {
+        red: "var(--background-red)",
+        amber: "var(--background-amber)",
+        emerald: "var(--background-emerald)",
+        sky: "var(--background-sky)",
       },
       spacing: {
         ...spacingTokens,
