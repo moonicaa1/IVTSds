@@ -15,13 +15,15 @@ const preview: Preview = {
     docs: {
       toc: true,
     },
-    layout: "centered", // Default to centered for UI components
+    layout: "centered",
   },
   decorators: [
     (Story) => (
       <ThemeProvider>
-        <div className="bg-backgroundSecondary text-contentPrimary font-sans min-h-screen w-full">
-          <Story />
+        <div className="bg-backgroundSecondary text-contentPrimary font-sans min-h-screen w-full flex items-center justify-center p-12">
+          <div className="w-full max-w-[1200px] flex justify-center">
+            <Story />
+          </div>
         </div>
       </ThemeProvider>
     ),
