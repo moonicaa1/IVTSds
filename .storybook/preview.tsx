@@ -15,26 +15,15 @@ const preview: Preview = {
     docs: {
       toc: true,
     },
-    // 컴포넌트가 기본적으로 중앙에 정렬되게 하여 가독성을 높입니다.
     layout: "centered",
   },
   decorators: [
     (Story) => (
       <ThemeProvider>
-        {/* 컴포넌트가 돋보이도록 최소 너비와 고급스러운 배경 및 여백을 설정합니다. */}
-        <div
-          className="bg-backgroundSecondary text-contentPrimary font-sans"
-          style={{
-            minWidth: '500px',
-            minHeight: '200px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            padding: '4rem',
-            borderRadius: '12px'
-          }}
-        >
-          <Story />
+        <div className="bg-backgroundSecondary text-contentPrimary font-sans w-full min-h-[400px] flex items-center justify-center p-16">
+          <div className="w-full max-w-[1200px] flex justify-center">
+            <Story />
+          </div>
         </div>
       </ThemeProvider>
     ),
