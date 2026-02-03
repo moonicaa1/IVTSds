@@ -6,15 +6,7 @@ import React from "react";
 
 /**
  * # Sidebar
- * 
- * The Sidebar is the primary navigation hub of the application. 
- * It supports a three-level hierarchical menu system, collapsible states, 
- * and a "Favorites" section for quick access to frequently used pages.
- * 
- * ## Usage Guidelines
- * - **Do**: Keep navigation items organized by function or module.
- * - **Do**: Use clear icons that represent the category or tool.
- * - **Don't**: Exceed three levels of hierarchy to maintain navigational clarity.
+ * 100% Synced with components/layout/Sidebar.tsx
  */
 const meta: Meta<typeof Sidebar> = {
     title: "Layout & Patterns/Sidebar",
@@ -23,8 +15,11 @@ const meta: Meta<typeof Sidebar> = {
         (Story) => (
             <ThemeProvider>
                 <SidebarProvider>
-                    <div className="relative w-full h-screen bg-backgroundSecondary">
+                    <div className="relative flex w-full h-screen bg-backgroundSecondary">
                         <Story />
+                        <div className="flex-1 p-8">
+                            <h1 className="text-xl font-bold text-contentPrimary">Page Content</h1>
+                        </div>
                     </div>
                 </SidebarProvider>
             </ThemeProvider>
@@ -38,7 +33,5 @@ const meta: Meta<typeof Sidebar> = {
 export default meta;
 type Story = StoryObj<typeof Sidebar>;
 
-/**
- * Full-height sidebar with navigation items and favorites.
- */
 export const Default: Story = {};
+

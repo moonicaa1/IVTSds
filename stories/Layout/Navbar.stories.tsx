@@ -6,15 +6,7 @@ import React from "react";
 
 /**
  * # Navbar
- * 
- * The Navbar is a fixed header that provides global utility actions, search functionality, 
- * and user-specific information. It adapts to the application's theme and provides 
- * multilingual search suggestions.
- * 
- * ## Usage Guidelines
- * - **Do**: Use as the global navigation header for all dashboard pages.
- * - **Do**: Ensure it remains fixed at the top of the viewport.
- * - **Don't**: Modify the navbar height (80px) as it is synchronized with the AppShell layout.
+ * 100% Synced with components/layout/Navbar.tsx
  */
 const meta: Meta<typeof Navbar> = {
     title: "Layout & Patterns/Navbar",
@@ -23,7 +15,7 @@ const meta: Meta<typeof Navbar> = {
         (Story) => (
             <ThemeProvider>
                 <SidebarProvider>
-                    <div className="relative w-full h-screen bg-backgroundSecondary">
+                    <div className="relative w-full h-[300px] bg-backgroundSecondary">
                         <Story />
                     </div>
                 </SidebarProvider>
@@ -38,7 +30,5 @@ const meta: Meta<typeof Navbar> = {
 export default meta;
 type Story = StoryObj<typeof Navbar>;
 
-/**
- * Default Navbar showing global search, language selector, and user profile.
- */
 export const Default: Story = {};
+
