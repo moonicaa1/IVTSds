@@ -27,6 +27,13 @@ const meta: Meta<typeof Sidebar> = {
     ],
     parameters: {
         layout: "fullscreen",
+        nextjs: {
+            appDirectory: true,
+            navigation: {
+                pathname: "/",
+                query: {},
+            },
+        },
     },
 };
 

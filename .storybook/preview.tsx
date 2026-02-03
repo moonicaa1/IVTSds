@@ -20,11 +20,7 @@ const preview: Preview = {
   decorators: [
     (Story) => (
       <ThemeProvider>
-        <div className="bg-backgroundSecondary text-contentPrimary font-sans w-full min-h-[400px] flex items-center justify-center p-16">
-          <div className="w-full max-w-[1200px] flex justify-center">
-            <Story />
-          </div>
-        </div>
+        <Story />
       </ThemeProvider>
     ),
   ],

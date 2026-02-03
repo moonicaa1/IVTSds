@@ -11,6 +11,13 @@ const meta: Meta<typeof AppShell> = {
     component: AppShell,
     parameters: {
         layout: "fullscreen",
+        nextjs: {
+            appDirectory: true,
+            navigation: {
+                pathname: "/",
+                query: {},
+            },
+        },
     },
 };
 
