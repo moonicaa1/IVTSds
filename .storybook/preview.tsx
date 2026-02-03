@@ -21,8 +21,19 @@ const preview: Preview = {
   decorators: [
     (Story) => (
       <ThemeProvider>
-        {/* 테마 배경색만 입히고 여백을 주어 컴포넌트가 돋보이게 합니다. */}
-        <div className="bg-backgroundSecondary text-contentPrimary font-sans p-10 rounded-lg">
+        {/* 컴포넌트가 돋보이도록 최소 너비와 고급스러운 배경 및 여백을 설정합니다. */}
+        <div
+          className="bg-backgroundSecondary text-contentPrimary font-sans"
+          style={{
+            minWidth: '500px',
+            minHeight: '200px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: '4rem',
+            borderRadius: '12px'
+          }}
+        >
           <Story />
         </div>
       </ThemeProvider>
