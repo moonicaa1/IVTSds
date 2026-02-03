@@ -13,26 +13,15 @@ const preview: Preview = {
       },
     },
     docs: {
-      toc: true, // 목차 추가
+      toc: true,
     },
+    layout: "centered", // Default to centered for UI components
   },
   decorators: [
     (Story) => (
       <ThemeProvider>
-        <div
-          className="bg-backgroundSecondary text-contentPrimary font-sans"
-          style={{
-            minHeight: '100%',
-            width: '100%',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            padding: '40px'
-          }}
-        >
-          <div style={{ width: '100%', maxWidth: '1200px' }}>
-            <Story />
-          </div>
+        <div className="bg-backgroundSecondary text-contentPrimary font-sans min-h-screen w-full">
+          <Story />
         </div>
       </ThemeProvider>
     ),

@@ -39,7 +39,7 @@ export const Default: Story = {
     render: (args) => {
         const [selected, setSelected] = useState<Set<string>>(new Set(["Active"]));
         return (
-            <div className="h-64 p-8">
+            <div className="h-64">
                 <MultiSelectDropdown
                     {...args}
                     label="Status"

@@ -59,22 +59,20 @@ export const Default: Story = {
         const [page, setPage] = useState(1);
         const [rowCount, setRowCount] = useState(10);
         return (
-            <div className="p-8 bg-backgroundSecondary min-h-screen">
-                <Table
-                    data={MOCK_DATA}
-                    columns={COLUMNS}
-                    totalItems={MOCK_DATA.length}
-                    currentPage={page}
-                    itemsPerPage={rowCount}
-                    onPageChange={setPage}
-                    onRowCountChange={setRowCount}
-                    searchPlaceholder="Search dealers..."
-                    filterOptions={{
-                        "Status": ["Active", "Inactive", "Pending"],
-                        "Region": ["Asia", "Europe", "North America"]
-                    }}
-                />
-            </div>
+            <Table
+                data={MOCK_DATA}
+                columns={COLUMNS}
+                totalItems={MOCK_DATA.length}
+                currentPage={page}
+                itemsPerPage={rowCount}
+                onPageChange={setPage}
+                onRowCountChange={setRowCount}
+                searchPlaceholder="Search dealers..."
+                filterOptions={{
+                    "Status": ["Active", "Inactive", "Pending"],
+                    "Region": ["Asia", "Europe", "North America"]
+                }}
+            />
         );
     }
 };
@@ -107,16 +105,14 @@ export const Expandable: Story = {
         ];
 
         return (
-            <div className="p-8 bg-backgroundSecondary min-h-screen">
-                <Table
-                    data={dataWithSubRows as any}
-                    columns={columns as any}
-                    totalItems={2}
-                    currentPage={1}
-                    itemsPerPage={10}
-                    onPageChange={() => { }}
-                />
-            </div>
+            <Table
+                data={dataWithSubRows as any}
+                columns={columns as any}
+                totalItems={2}
+                currentPage={1}
+                itemsPerPage={10}
+                onPageChange={() => { }}
+            />
         );
     }
 };
