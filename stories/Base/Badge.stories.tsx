@@ -5,7 +5,7 @@ import React from "react";
 /**
  * # Badge
  * 100% Synced with components/ui/Badge.tsx
- * // sync-check: 2026-02-03
+ * [Last Sync: 2026-02-03 10:45 AM]
  */
 const meta: Meta<typeof Badge> = {
     title: "Base Components/Badge",

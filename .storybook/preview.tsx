@@ -15,15 +15,15 @@ const preview: Preview = {
     docs: {
       toc: true,
     },
+    // 컴포넌트가 기본적으로 중앙에 정렬되게 하여 가독성을 높입니다.
     layout: "centered",
   },
   decorators: [
     (Story) => (
       <ThemeProvider>
-        <div className="bg-backgroundSecondary text-contentPrimary font-sans min-h-screen w-full flex items-center justify-center p-12">
-          <div className="w-full max-w-[1200px] flex justify-center">
-            <Story />
-          </div>
+        {/* 테마 배경색만 입히고 여백을 주어 컴포넌트가 돋보이게 합니다. */}
+        <div className="bg-backgroundSecondary text-contentPrimary font-sans p-10 rounded-lg">
+          <Story />
         </div>
       </ThemeProvider>
     ),
