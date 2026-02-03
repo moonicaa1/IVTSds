@@ -58,14 +58,20 @@ export default function Alert({
     className = "",
 }: AlertProps) {
     // Icon mapping based on type
-    const iconMap = {
-        info: InformationCircleIcon,
-        success: CheckCircleIcon,
-        warning: ExclamationTriangleIcon,
-        error: XCircleIcon,
+    const getDefaultIcon = () => {
+        switch (type) {
+            case "info":
+                return InformationCircleIcon;
+            case "success":
+                return CheckCircleIcon;
+            case "warning":
+                return ExclamationTriangleIcon;
+            case "error":
+                return XCircleIcon;
+        }
     };
 
-    const IconComponent = icon || iconMap[type];
+    const DefaultIcon = getDefaultIcon();
 
     // Color scheme mapping
     const colorClasses = {
@@ -104,10 +110,10 @@ export default function Alert({
         >
             {/* Icon */}
             <div className="flex-shrink-0">
-                {typeof IconComponent === "function" ? (
-                    <IconComponent className={`w-5 h-5 ${colors.icon}`} />
+                {icon ? (
+                    <div className={colors.icon}>{icon}</div>
                 ) : (
-                    IconComponent
+                    <DefaultIcon className={`w-5 h-5 ${colors.icon}`} />
                 )}
             </div>
 
