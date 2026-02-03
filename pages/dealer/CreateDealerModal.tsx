@@ -86,9 +86,8 @@ export default function CreateDealerModal({
             <div className="flex flex-col gap-4">
                 <Select
                     label="Dealer type"
-                    id="dealerType"
                     value={formData.dealerType}
-                    onChange={(e) => handleChange("dealerType", e.target.value)}
+                    onChange={(val) => handleChange("dealerType", val)}
                     options={[
                         { value: "DLR", label: "DLR" },
                         { value: "DGP", label: "DGP" },
