@@ -1,7 +1,7 @@
-import type { Preview } from '@storybook/nextjs-vite'
-import '../app/globals.css'
-import { ThemeProvider } from '../lib/contexts/ThemeContext'
-import React from 'react'
+import type { Preview } from "@storybook/react";
+import React from "react";
+import "../app/globals.css";
+import { ThemeProvider } from "../lib/contexts/ThemeContext";
 
 const preview: Preview = {
   parameters: {
@@ -11,18 +11,14 @@ const preview: Preview = {
         date: /Date$/i,
       },
     },
-
-    a11y: {
-      // 'todo' - show a11y violations in the test UI only
-      // 'error' - fail CI on a11y violations
-      // 'off' - skip a11y checks entirely
-      test: 'todo'
-    }
+    layout: "fullscreen",
   },
   decorators: [
     (Story) => (
       <ThemeProvider>
-      <Story />
+        <div className="bg-backgroundSecondary min-h-screen">
+          <Story />
+        </div>
       </ThemeProvider>
     ),
   ],

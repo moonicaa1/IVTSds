@@ -9,15 +9,7 @@ import {
 
 /**
  * # Button
- * 
- * Buttons allow users to take actions, and make choices, with a single tap. 
- * They are primarily used for interactive elements like forms, dialogs, and toolbars.
- * 
- * ## Usage Guidelines
- * - **Do**: Use buttons for primary actions that change state or submit data.
- * - **Do**: Use clear, concise labels that describe the action (e.g., "Save", "Delete").
- * - **Don't**: Use buttons for navigation if a simple link is more appropriate.
- * - **Don't**: Overuse primary buttons; typically one primary action per view is recommended.
+ * 100% Synced with components/ui/Button.tsx
  */
 const meta: Meta<typeof Button> = {
     title: "Base Components/Button",
@@ -27,58 +19,34 @@ const meta: Meta<typeof Button> = {
         variant: {
             control: "select",
             options: ["default", "outline", "plain"],
-            description: "The visual style of the button.",
-            table: {
-                type: { summary: "string" },
-                defaultValue: { summary: "default" },
-            },
         },
         size: {
             control: "select",
             options: ["xs", "sm", "base", "l", "xl"],
-            description: "The size of the button.",
-            table: {
-                type: { summary: "string" },
-                defaultValue: { summary: "base" },
-            },
         },
         disabled: {
             control: "boolean",
-            description: "Whether the button is interactive.",
         },
         iconOnly: {
             control: "boolean",
-            description: "If true, renders as a square button optimized for icons.",
         },
         href: {
             control: "text",
-            description: "If provided, renders the button as an <a> tag.",
         },
-        className: {
-            control: "text",
-            description: "Additional CSS classes for custom styling.",
-        },
-        onClick: { action: "clicked" },
     },
 };
 
 export default meta;
 type Story = StoryObj<typeof Button>;
 
-/**
- * The standard button for most actions.
- */
 export const Default: Story = {
     args: {
-        children: "Default Button",
+        children: "Button",
         variant: "default",
         size: "base",
     },
 };
 
-/**
- * Used for secondary actions to reduce visual weight.
- */
 export const Outline: Story = {
     args: {
         children: "Outline Button",
@@ -87,9 +55,6 @@ export const Outline: Story = {
     },
 };
 
-/**
- * Used for tertiary actions or when embedded in text.
- */
 export const Plain: Story = {
     args: {
         children: "Plain Button",
@@ -98,9 +63,6 @@ export const Plain: Story = {
     },
 };
 
-/**
- * Button with a leading icon.
- */
 export const WithLeftIcon: Story = {
     args: {
         children: "Add New",
@@ -109,9 +71,6 @@ export const WithLeftIcon: Story = {
     },
 };
 
-/**
- * Button with a trailing icon.
- */
 export const WithRightIcon: Story = {
     args: {
         children: "Next Step",
@@ -120,9 +79,6 @@ export const WithRightIcon: Story = {
     },
 };
 
-/**
- * Optimized for displaying only an icon.
- */
 export const IconOnly: Story = {
     args: {
         iconOnly: true,
@@ -132,12 +88,9 @@ export const IconOnly: Story = {
     },
 };
 
-/**
- * Demonstration of all available sizes.
- */
-export const Sizes: Story = {
+export const AllSizes: Story = {
     render: (args) => (
-        <div className="flex items-end gap-4">
+        <div className="flex items-end gap-4 p-4 bg-backgroundPrimary rounded-lg border border-borderSecondary">
             <Button {...args} size="xs">Extra Small</Button>
             <Button {...args} size="sm">Small</Button>
             <Button {...args} size="base">Base</Button>
@@ -146,3 +99,4 @@ export const Sizes: Story = {
         </div>
     ),
 };
+

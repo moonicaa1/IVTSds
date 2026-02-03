@@ -5,29 +5,18 @@ import React, { useState } from "react";
 
 /**
  * # Table
- * 
- * A high-performance data grid component designed for enterprise-grade data management. 
- * Supports sorting, filtering, selection, expansion, and pagination.
- * 
- * ## Usage Guidelines
- * - **Do**: Use for datasets that require comparison, sorting, or complex manipulation.
- * - **Do**: Use consistent column alignment (Left for text, Right for numbers/actions).
- * - **Do**: Provide clear headers and manageable page sizes.
- * - **Don't**: Use tables for layout purposes.
+ * 100% Synced with components/ui/Table.tsx
  */
 const meta: Meta<typeof Table> = {
     title: "Base Components/Table",
+    component: Table,
     argTypes: {
         searchPlaceholder: {
             control: "text",
-            description: "Placeholder text for the search bar.",
         },
         itemsPerPage: {
             control: "number",
-            description: "Number of rows per page.",
         },
-        onPageChange: { action: "pageChanged" },
-        onRowCountChange: { action: "rowCountChanged" },
     },
 };
 
@@ -58,9 +47,6 @@ const COLUMNS = [
     { key: "creators", header: "Created By", width: "120px" },
 ];
 
-/**
- * Standard usage with mock dealer data.
- */
 export const Default: Story = {
     render: () => {
         const [page, setPage] = useState(1);
@@ -86,9 +72,6 @@ export const Default: Story = {
     }
 };
 
-/**
- * Demonstrates a table with nested/expandable rows.
- */
 export const Expandable: Story = {
     render: () => {
         const dataWithSubRows = [
@@ -130,3 +113,4 @@ export const Expandable: Story = {
         );
     }
 };
+
