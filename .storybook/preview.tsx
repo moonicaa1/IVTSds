@@ -11,7 +11,7 @@ const preview: Preview = {
         date: /Date$/i,
       },
     },
-    layout: "fullscreen",
+    // layout: "fullscreen" 을 제거하고 기본값(centered 등)을 따르거나 각 스토리에서 결정하도록 합니다.
     a11y: {
       test: "todo",
     },
@@ -19,7 +19,7 @@ const preview: Preview = {
   decorators: [
     (Story) => (
       <ThemeProvider>
-        <div className="bg-backgroundSecondary min-h-screen">
+        <div className="bg-backgroundSecondary" style={{ minHeight: '100%', padding: '1rem' }}>
           <Story />
         </div>
       </ThemeProvider>

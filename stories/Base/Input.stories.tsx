@@ -10,6 +10,9 @@ const meta: Meta<typeof Input> = {
     title: "Base Components/Input",
     component: Input,
     tags: ["autodocs"],
+    parameters: {
+        layout: "centered",
+    },
     argTypes: {
         label: {
             control: "text",

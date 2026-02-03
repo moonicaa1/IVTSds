@@ -10,6 +10,9 @@ const meta: Meta<typeof Checkbox> = {
     title: "Base Components/Checkbox",
     component: Checkbox,
     tags: ["autodocs"],
+    parameters: {
+        layout: "centered",
+    },
     argTypes: {
         checked: {
             control: "select",

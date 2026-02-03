@@ -10,6 +10,9 @@ const meta: Meta<typeof Select> = {
     title: "Base Components/Select",
     component: Select,
     tags: ["autodocs"],
+    parameters: {
+        layout: "centered",
+    },
     argTypes: {
         label: {
             control: "text",

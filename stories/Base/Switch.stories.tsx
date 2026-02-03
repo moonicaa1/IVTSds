@@ -10,6 +10,9 @@ const meta: Meta<typeof Switch> = {
     title: "Base Components/Switch",
     component: Switch,
     tags: ["autodocs"],
+    parameters: {
+        layout: "centered",
+    },
     argTypes: {
         label: {
             control: "text",

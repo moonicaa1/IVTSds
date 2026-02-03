@@ -11,6 +11,9 @@ const meta: Meta<typeof Badge> = {
     title: "Base Components/Badge",
     component: Badge,
     tags: ["autodocs"],
+    parameters: {
+        layout: "centered",
+    },
     argTypes: {
         color: {
             control: "select",
