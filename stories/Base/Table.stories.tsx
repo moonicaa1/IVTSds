@@ -18,6 +18,13 @@ const meta: Meta<typeof Table> = {
             control: "number",
         },
     },
+    decorators: [
+        (Story) => (
+            <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+                <Story />
+            </div>
+        ),
+    ],
 };
 
 export default meta;

@@ -11,7 +11,7 @@ const meta: Meta<typeof MultiSelectDropdown> = {
     component: MultiSelectDropdown,
     tags: ["autodocs"],
     parameters: {
-        layout: "fullscreen",
+        layout: "centered",
     },
     argTypes: {
         label: {
@@ -21,6 +21,13 @@ const meta: Meta<typeof MultiSelectDropdown> = {
             control: "text",
         },
     },
+    decorators: [
+        (Story) => (
+            <div style={{ width: '400px' }}>
+                <Story />
+            </div>
+        ),
+    ],
 };
 
 export default meta;
