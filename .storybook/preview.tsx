@@ -1,4 +1,4 @@
-import type { Preview } from "@storybook/react";
+import type { Preview } from "@storybook/nextjs-vite";
 import React from "react";
 import "../app/globals.css";
 import { ThemeProvider } from "../lib/contexts/ThemeContext";
@@ -12,6 +12,9 @@ const preview: Preview = {
       },
     },
     layout: "fullscreen",
+    a11y: {
+      test: "todo",
+    },
   },
   decorators: [
     (Story) => (
