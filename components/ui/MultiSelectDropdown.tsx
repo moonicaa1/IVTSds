@@ -29,13 +29,22 @@ export interface DropdownOption {
  * @property {(value: string) => string} [getBadgeColor] - 값에 따른 뱃지 색상을 반환하는 함수
  */
 interface MultiSelectDropdownProps {
+    /** 드롭다운 트리거에 표시될 라벨 텍스트입니다. */
     label: string;
+    /** 선택 가능한 옵션 목록입니다. 객체 배열 또는 문자열 배열이 가능합니다. */
     options: DropdownOption[] | string[];
+    /** 현재 선택된 값들의 집합(Set)입니다. */
     selectedValues: Set<string>;
+    /** 선택 상태가 변경될 때 호출되는 콜백 함수입니다. */
     onChange: (newSelected: Set<string>) => void;
+    /** 값이 없을 때 표시될 플레이스홀더 텍스트입니다. */
     placeholder?: string;
+    /** 추가적인 스타일 클래스입니다. */
     className?: string;
+    /** 값에 따른 뱃지 컬러를 결정하는 함수입니다. */
     getBadgeColor?: (value: string) => string;
+    /** 스크린 리더용 접근성 라벨입니다. */
+    "aria-label"?: string;
 }
 
 /**
@@ -59,6 +68,7 @@ export default function MultiSelectDropdown({
     placeholder = "Select options",
     className = "",
     getBadgeColor,
+    "aria-label": ariaLabel,
 }: MultiSelectDropdownProps) {
     const [isOpen, setIsOpen] = useState(false);
     const dropdownRef = useRef<HTMLDivElement>(null);
@@ -108,6 +118,8 @@ export default function MultiSelectDropdown({
             <button
                 type="button"
                 onClick={() => setIsOpen(!isOpen)}
+                aria-expanded={isOpen}
+                aria-label={ariaLabel || label}
                 className={`
                     flex items-center gap-1.5 rounded-lg bg-backgroundPrimary px-2 h-10 text-sm transition-colors hover:bg-backgroundSecondary
                     text-contentPrimary
@@ -147,9 +159,7 @@ export default function MultiSelectDropdown({
                                 <Checkbox
                                     checked={selectedValues.has(option.value)}
                                     className="shrink-0"
-                                    // Event is handled by the label click mostly, but we can also pass empty handler to avoid readonly warning if needed.
-                                    // Checkbox component might need to handle 'readOnly' or 'pointer-events-none' if we rely on label click.
-                                    // Since our Checkbox is a button, clicking it directly works.
+                                    aria-label={option.label}
                                     onCheckedChange={() => toggleOption(option.value)}
                                 />
                                 <span className="text-sm font-medium text-contentPrimary select-none">

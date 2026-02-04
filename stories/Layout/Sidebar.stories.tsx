@@ -4,13 +4,20 @@ import { SidebarProvider } from "@/lib/contexts/SidebarContext";
 import { ThemeProvider } from "@/lib/contexts/ThemeContext";
 import React from "react";
 
-/**
- * # Sidebar
- * 100% Synced with components/layout/Sidebar.tsx
- */
 const meta: Meta<typeof Sidebar> = {
     title: "Layout & Patterns/Sidebar",
     component: Sidebar,
+    tags: ["autodocs"],
+    parameters: {
+        layout: "fullscreen",
+        nextjs: {
+            appDirectory: true,
+            navigation: {
+                pathname: "/",
+                query: {},
+            },
+        },
+    },
     decorators: [
         (Story) => (
             <ThemeProvider>
@@ -25,16 +32,6 @@ const meta: Meta<typeof Sidebar> = {
             </ThemeProvider>
         ),
     ],
-    parameters: {
-        layout: "fullscreen",
-        nextjs: {
-            appDirectory: true,
-            navigation: {
-                pathname: "/",
-                query: {},
-            },
-        },
-    },
 };
 
 export default meta;

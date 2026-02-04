@@ -27,10 +27,15 @@ export type BadgeColor =
  * @property {string} [className] - 컴포넌트 외부에서 레이아웃이나 간격을 조절하기 위한 추가 CSS 클래스입니다.
  */
 interface BadgeProps {
+    /** 뱃지 내부에 표시될 텍스트 또는 요소입니다. */
     children: React.ReactNode;
+    /** 뱃지의 시각적 테마 색상을 결정합니다. */
     color?: BadgeColor;
+    /** 제거(X) 버튼 노출 여부입니다. */
     showXButton?: boolean;
+    /** 제거 버튼 클릭 시 호출되는 콜백 함수입니다. */
     onRemove?: (e: React.MouseEvent) => void;
+    /** 추가적인 스타일 클래스입니다. */
     className?: string;
 }
 
@@ -57,7 +62,6 @@ const colorStyles: Record<BadgeColor, string> = {
 };
 
 /**
- * @component Badge
  * @description 텍스트 정보를 시각적으로 그룹화하거나 강조할 때 사용하는 컴포넌트입니다.
  * X 버튼을 포함하여 필터 제거 등의 기능을 지원할 수 있습니다.
  */

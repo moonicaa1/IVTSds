@@ -5,7 +5,6 @@ import { SidebarProvider } from "@/lib/contexts/SidebarContext";
 import React from "react";
 
 /**
- * # Navbar (Docs 2.0)
  * 어플리케이션의 최상단 레이아웃을 담당하며, 글로벌 검색 및 시스템 설정을 관리하는 핵심 네비게이션바입니다.
  * 
  * ## Usage
@@ -40,7 +39,7 @@ const meta: Meta<typeof Navbar> = {
         layout: "fullscreen",
         docs: {
             description: {
-                component: "AI 지능형 검색과 다국어 대응이 포함된 프리미엄 내비게이션바 컴포넌트입니다.",
+                component: "AI 지능형 검색과 다국어 대응이 포함된 프리미엄 내비게이션바 컴포넌트입니다. 100% Synced with code.",
             },
         },
         design: {

@@ -16,10 +16,15 @@ import Button from "@/components/ui/Button";
  * @description ContentModal 컴포넌트의 Props 정의
  */
 export interface ModalProps {
+    /** 모달의 노출 여부입니다. */
     isOpen: boolean;
+    /** 모달을 닫을 때 호출되는 콜백 함수입니다. */
     onClose: () => void;
+    /** 모달 상단에 표시될 제목입니다. */
     title: string;
+    /** 모달 본문에 들어갈 내용입니다. */
     children: React.ReactNode;
+    /** 모달 하단(액션 영역)에 들어갈 요소입니다. */
     footer?: React.ReactNode;
 }
 
@@ -96,13 +101,21 @@ export function ContentModal({
  * @description ConfirmModal 컴포넌트의 Props 정의
  */
 export interface ConfirmModalProps {
+    /** 모달의 노출 여부입니다. */
     isOpen: boolean;
+    /** 모달을 닫을 때(취소) 호출되는 콜백 함수입니다. */
     onClose: () => void;
+    /** 확인 버튼을 클릭했을 때 호출되는 콜백 함수입니다. */
     onConfirm: () => void;
+    /** 모달 상단에 표시될 제목입니다. */
     title: string;
+    /** 사용자에게 보여줄 상세 설명 메시지입니다. */
     description: string;
+    /** 확인 버튼의 텍스트입니다. (기본값: Confirm) */
     confirmText?: string;
+    /** 취소 버튼의 텍스트입니다. (기본값: Cancel) */
     cancelText?: string;
+    /** 모달의 성격(기본, 파괴적 액션)에 따른 스타일 변형입니다. */
     variant?: "default" | "destructive";
 }
 

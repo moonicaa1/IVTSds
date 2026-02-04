@@ -31,14 +31,24 @@ export interface SelectOption {
  * @property {string} [className] - Additional CSS classes
  */
 export interface SelectProps {
+    /** 드롭다운에서 선택 가능한 옵션 목록입니다. */
     options: SelectOption[];
+    /** 현재 선택된 값입니다. */
     value?: string;
+    /** 값이 변경될 때 호출되는 콜백 함수입니다. */
     onChange?: (value: string) => void;
+    /** 필드 상단에 표시될 라벨 텍스트입니다. */
     label?: string;
+    /** 필드 하단에 표시될 보조 설명 텍스트입니다. */
     description?: string;
+    /** 값이 없을 때 표시될 플레이스홀더 텍스트입니다. */
     placeholder?: string;
+    /** 컴포넌트 비활성화 여부입니다. */
     disabled?: boolean;
+    /** 추가적인 스타일 클래스입니다. */
     className?: string;
+    /** 스크린 리더용 접근성 라벨입니다. */
+    "aria-label"?: string;
 }
 
 /**
@@ -72,6 +82,7 @@ const Select = React.forwardRef<HTMLDivElement, SelectProps>(
             placeholder = "Select",
             disabled = false,
             className = "",
+            "aria-label": ariaLabel,
         },
         ref
     ) => {
@@ -126,6 +137,8 @@ const Select = React.forwardRef<HTMLDivElement, SelectProps>(
                         type="button"
                         onClick={() => !disabled && setIsOpen(!isOpen)}
                         disabled={disabled}
+                        aria-expanded={isOpen}
+                        aria-label={ariaLabel || label}
                         className={`
               w-full flex items-center justify-between gap-3
               px-3 py-2 rounded-lg border text-sm font-medium text-left

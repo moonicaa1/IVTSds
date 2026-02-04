@@ -19,6 +19,7 @@ import CreateDealerModal from "@/pages/dealer/CreateDealerModal";
  * @property {(dealerData: any) => void} [onAddDealer] - 새로운 딜러 데이터가 생성되었을 때 호출되는 콜백 함수
  */
 interface ContentHeaderProps {
+    /** 새로운 딜러 데이터가 생성되었을 때 호출되는 콜백 함수입니다. */
     onAddDealer?: (dealerData: any) => void;
 }
 

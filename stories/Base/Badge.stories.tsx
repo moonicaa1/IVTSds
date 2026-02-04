@@ -1,40 +1,14 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import Badge from "@/components/ui/Badge";
 import React from "react";
+import { DoDontLayout, DoCard, DontCard } from "../DocComponents";
 
-/**
- * # Badge (Docs 2.0)
- * 텍스트 정보를 시각적으로 그룹화하고 강조하는 컴포넌트입니다.
- * 
- * ## Usage
- * - 상태 표시 (예: Active, Pending, Error)
- * - 카테고리 태그 분류
- * - 선택된 필터 아이템 표시
- * 
- * ## Best Practices
- * ### ✅ Do
- * - 상태의 의미에 맞는 컬러를 사용하세요 (에러는 Red, 성공은 Green).
- * - 단어 위주의 짧은 텍스트를 사용하세요.
- * 
- * ### ❌ Don't
- * - <span style="color: #ef4444; font-weight: bold;">[Bad]</span> 문장 단위의 긴 텍스트를 넣지 마세요. 가독성이 떨어집니다.
- * - <span style="color: #ef4444; font-weight: bold;">[Bad]</span> 클릭 기능이 없는 뱃지에 X 버튼을 노출하지 마세요.
- */
 const meta: Meta<typeof Badge> = {
     title: "Base Components/Badge",
     component: Badge,
     tags: ["autodocs"],
     parameters: {
         layout: "centered",
-        docs: {
-            description: {
-                component: "인벤티스 디자인 시스템의 표준 뱃지 컴포넌트입니다.",
-            },
-        },
-        design: {
-            type: "figma",
-            url: "https://www.figma.com/design/XXXXX/IVTS-DS-v0.2?node-id=Badge",
-        },
     },
     argTypes: {
         color: {
@@ -106,11 +80,99 @@ export const Colors: Story = {
     ),
 };
 
+/**
+ * 컴포넌트 조합 예시 (Recipe)
+ */
+export const StatusManagementRecipe: Story = {
+    name: "Recipe: Status List",
+    render: () => (
+        <div className="w-80 space-y-4 rounded-xl border border-borderSecondary p-5 bg-backgroundPrimary shadow-sm">
+            <h4 className="text-sm font-bold text-contentPrimary mb-3">Project Status</h4>
+            <div className="flex flex-col gap-3">
+                <div className="flex items-center justify-between">
+                    <span className="text-sm text-contentSecondary">Website Redesign</span>
+                    <Badge color="Green">Completed</Badge>
+                </div>
+                <div className="flex items-center justify-between">
+                    <span className="text-sm text-contentSecondary">Mobile App QA</span>
+                    <Badge color="Amber">In Progress</Badge>
+                </div>
+                <div className="flex items-center justify-between">
+                    <span className="text-sm text-contentSecondary">Database Migration</span>
+                    <Badge color="Zinc">Pending</Badge>
+                </div>
+                <div className="flex items-center justify-between">
+                    <span className="text-sm text-contentSecondary">API Integration</span>
+                    <Badge color="Red">Delayed</Badge>
+                </div>
+            </div>
+        </div>
+    ),
+};
+
 export const Removable: Story = {
     args: {
         children: "Removable Tag",
         color: "Blue",
         showXButton: true,
     },
+};
+
+export const Guidelines: Story = {
+    tags: ['!dev'],
+    parameters: {
+        controls: { disable: true },
+        actions: { disable: true },
+    },
+    render: () => (
+        <div className="sb-unstyled max-w-6xl">
+            <h2 className="text-2xl font-bold mb-6">Guidelines (Do's & Don'ts)</h2>
+
+            <DoDontLayout>
+                <DoCard
+                    title="의미 있는 색상 선택"
+                    example={
+                        <div className="flex gap-2">
+                            <Badge color="Green">Active</Badge>
+                            <Badge color="Red">Error</Badge>
+                        </div>
+                    }
+                >
+                    상태나 의미에 맞는 색상을 사용하세요. 성공이나 긍정적 상태는 녹색 계열, 경고나 부정적 상태는 빨간색 계열을 사용하는 것이 직관적입니다.
+                </DoCard>
+
+                <DontCard
+                    title="너무 많은 색상을 섞어 쓰지 말 것"
+                    example={
+                        <div className="flex gap-2">
+                            <Badge color="Blue">New</Badge>
+                            <Badge color="Purple">Premium</Badge>
+                            <Badge color="Cyan">Updated</Badge>
+                        </div>
+                    }
+                >
+                    화면에 너무 다양한 색상의 뱃지가 있으면 시각적으로 산만해지고 각 색상의 의미가 희석됩니다.
+                </DontCard>
+
+                <DoCard
+                    title="간결한 텍스트 사용"
+                    example={
+                        <Badge color="Zinc">Pending</Badge>
+                    }
+                >
+                    뱃지 내부 텍스트는 가능한 짧게 유지하세요. 보통 한 단어 또는 짧은 문구가 가장 적절합니다.
+                </DoCard>
+
+                <DontCard
+                    title="상호작용 버튼으로 오해하게 하지 말 것"
+                    example={
+                        <Badge color="Blue">Click to update profile status now</Badge>
+                    }
+                >
+                    뱃지는 정보를 표시하는 용도입니다. 복잡한 문장을 넣거나 실행 버튼처럼 보이게 정보를 나열하지 마세요.
+                </DontCard>
+            </DoDontLayout>
+        </div>
+    ),
 };
 

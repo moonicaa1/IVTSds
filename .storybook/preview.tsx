@@ -16,6 +16,11 @@ const preview: Preview = {
       toc: true,
     },
     layout: "centered",
+    options: {
+      storySort: {
+        order: ['Guide', 'Base Components', 'Layout'],
+      },
+    },
   },
   decorators: [
     (Story) => (

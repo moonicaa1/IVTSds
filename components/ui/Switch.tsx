@@ -16,11 +16,18 @@ import React from "react";
  * @property {boolean} [disabled] - 비활성화 여부
  */
 export interface SwitchProps {
+    /** 스위치 옆에 표시될 라벨 텍스트입니다. */
     label?: string;
+    /** 현재 활성화 여부입니다. */
     checked: boolean;
+    /** 상태 변경 시 호출되는 콜백 함수입니다. */
     onChange: (checked: boolean) => void;
+    /** 컴포넌트 비활성화 여부입니다. */
     disabled?: boolean;
+    /** 추가적인 스타일 클래스입니다. */
     className?: string;
+    /** 스크린 리더용 접근성 라벨입니다. */
+    "aria-label"?: string;
 }
 
 /**
@@ -37,6 +44,7 @@ export default function Switch({
     onChange,
     disabled = false,
     className = "",
+    "aria-label": ariaLabel,
 }: SwitchProps) {
     return (
         <div className={`flex items-center gap-3 ${className}`}>
@@ -44,6 +52,7 @@ export default function Switch({
                 type="button"
                 role="switch"
                 aria-checked={checked}
+                aria-label={ariaLabel || label}
                 disabled={disabled}
                 onClick={() => onChange(!checked)}
                 className={`

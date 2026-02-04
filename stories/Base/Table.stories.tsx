@@ -2,14 +2,15 @@ import type { Meta, StoryObj } from "@storybook/react";
 import Table from "@/components/ui/Table";
 import Badge from "@/components/ui/Badge";
 import React, { useState } from "react";
+import { DoDontLayout, DoCard, DontCard } from "../DocComponents";
 
-/**
- * # Table
- * 100% Synced with components/ui/Table.tsx
- */
 const meta: Meta<typeof Table> = {
     title: "Base Components/Table",
     component: Table,
+    tags: ["autodocs"],
+    parameters: {
+        layout: "fullscreen",
+    },
     argTypes: {
         searchPlaceholder: {
             control: "text",

@@ -2,15 +2,17 @@ import type { Meta, StoryObj } from "@storybook/react";
 import AppShell from "@/components/layout/AppShell";
 import React from "react";
 
-/**
- * # AppShell
- * 100% Synced with components/layout/AppShell.tsx
- */
 const meta: Meta<typeof AppShell> = {
     title: "Layout & Patterns/AppShell",
     component: AppShell,
+    tags: ["autodocs"],
     parameters: {
         layout: "fullscreen",
+        docs: {
+            description: {
+                component: "내비게이션과 레이아웃을 제공하는 표준 애플리케이션 쉘입니다. 100% Synced with code.",
+            },
+        },
         nextjs: {
             appDirectory: true,
             navigation: {

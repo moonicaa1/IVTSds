@@ -1,16 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import Button from "@/components/ui/Button";
 import React from "react";
-import {
-    PlusIcon,
-    ArrowRightIcon,
-    ArrowPathIcon
-} from "@heroicons/react/24/outline";
+import { within, userEvent, expect } from "@storybook/test";
+import { getIconArgTypes, iconMap } from "../utils/IconRegistry";
+import { DoDontLayout, DoCard, DontCard } from "../DocComponents";
 
-/**
- * # Button
- * 100% Synced with components/ui/Button.tsx
- */
 const meta: Meta<typeof Button> = {
     title: "Base Components/Button",
     component: Button,
@@ -36,6 +30,8 @@ const meta: Meta<typeof Button> = {
         href: {
             control: "text",
         },
+        ...getIconArgTypes('leftIcon', 'Icon to display on the left side of the button'),
+        ...getIconArgTypes('rightIcon', 'Icon to display on the right side of the button'),
     },
 };
 
@@ -47,6 +43,12 @@ export const Default: Story = {
         children: "Button",
         variant: "default",
         size: "base",
+    },
+    play: async ({ canvasElement, args }) => {
+        const canvas = within(canvasElement);
+        const button = canvas.getByRole('button');
+        await userEvent.click(button);
+        await expect(args.onClick).toHaveBeenCalled();
     },
 };
 
@@ -70,7 +72,7 @@ export const WithLeftIcon: Story = {
     args: {
         children: "Add New",
         variant: "default",
-        leftIcon: <PlusIcon className="w-4 h-4" />,
+        leftIcon: iconMap.Plus,
     },
 };
 
@@ -78,7 +80,7 @@ export const WithRightIcon: Story = {
     args: {
         children: "Next Step",
         variant: "outline",
-        rightIcon: <ArrowRightIcon className="w-4 h-4" />,
+        rightIcon: iconMap.ArrowRight,
     },
 };
 
@@ -87,7 +89,7 @@ export const IconOnly: Story = {
         iconOnly: true,
         variant: "outline",
         children: null,
-        leftIcon: <ArrowPathIcon className="w-5 h-5" />,
+        leftIcon: iconMap.ArrowPath,
     },
 };
 
@@ -99,6 +101,25 @@ export const AllSizes: Story = {
             <Button {...args} size="base">Base</Button>
             <Button {...args} size="l">Large</Button>
             <Button {...args} size="xl">Extra Large</Button>
+        </div>
+    ),
+};
+
+/**
+ * 컴포넌트 조합 예시 (Recipe)
+ */
+export const SearchRecipe: Story = {
+    name: "Recipe: Search Bar",
+    render: () => (
+        <div className="flex w-full max-w-md items-center gap-2 rounded-xl border border-borderPrimary bg-backgroundPrimary p-2 shadow-sm">
+            <div className="relative flex-1">
+                <input
+                    type="text"
+                    placeholder="Search users..."
+                    className="w-full bg-transparent px-3 py-2 text-sm outline-none placeholder:text-contentTertiary"
+                />
+            </div>
+            <Button size="sm">Search</Button>
         </div>
     ),
 };

@@ -3,13 +3,18 @@ import ContentWrapper from "@/components/layout/ContentWrapper";
 import { SidebarProvider } from "@/lib/contexts/SidebarContext";
 import React from "react";
 
-/**
- * # ContentWrapper
- * 100% Synced with components/layout/ContentWrapper.tsx
- */
 const meta: Meta<typeof ContentWrapper> = {
     title: "Layout & Patterns/ContentWrapper",
     component: ContentWrapper,
+    tags: ["autodocs"],
+    parameters: {
+        layout: "fullscreen",
+        docs: {
+            description: {
+                component: "메인 콘텐츠 영역을 감싸는 래퍼 컴포넌트입니다. 100% Synced with code.",
+            },
+        },
+    },
     decorators: [
         (Story) => (
             <SidebarProvider>
@@ -22,9 +27,6 @@ const meta: Meta<typeof ContentWrapper> = {
             </SidebarProvider>
         ),
     ],
-    parameters: {
-        layout: "fullscreen",
-    },
 };
 
 export default meta;

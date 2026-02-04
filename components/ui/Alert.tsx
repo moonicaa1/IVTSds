@@ -19,17 +19,17 @@ import {
  * @description Props for the Alert component
  */
 export interface AlertProps {
-    /** Type of alert determining the color scheme and icon */
+    /** 알림의 성격(정보, 성공, 경고, 위험)을 결정하며 색상과 아이콘이 변경됩니다. */
     type: "info" | "success" | "warning" | "error";
-    /** Optional title for the alert */
+    /** 알림 상단에 표시될 제목입니다. */
     title?: string;
-    /** Main message content */
+    /** 사용자에게 전달할 핵심 메시지 내용입니다. */
     description: string;
-    /** Optional callback when close button is clicked */
+    /** 닫기 버튼 클릭 시 호출되는 콜백 함수입니다. */
     onClose?: () => void;
-    /** Optional custom icon (overrides default type icon) */
+    /** 기본 아이콘 대신 사용할 커스텀 아이콘 요소입니다. */
     icon?: React.ReactNode;
-    /** Additional CSS classes */
+    /** 추가적인 스타일 클래스입니다. */
     className?: string;
 }
 

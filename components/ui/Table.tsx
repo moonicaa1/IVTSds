@@ -24,44 +24,53 @@ import Badge from "@/components/ui/Badge";
 /**
  * @interface Column
  * @description 테이블의 개별 컬럼 설정을 정의합니다.
- * @template T - 데이터 객체 타입
- * 
- * @property {string} key - 데이터 객체에서 매핑할 키
- * @property {string} header - 헤더 영역에 표시될 텍스트
- * @property {(item: T) => React.ReactNode} [render] - 커스텀 렌더링 함수 (상태 배지 등 표시용)
- * @property {"left" | "center" | "right"} [align] - 텍스트 정렬 방향
- * @property {string} [width] - 컬럼 너비 (예: '120px', '20%')
- * @property {boolean} [sortable] - 해당 컬럼의 정렬 가능 여부
  */
 interface Column<T> {
+    /** 데이터 객체에서 매핑할 키(property name)입니다. */
     key: string;
+    /** 테이블 헤더 영역에 표시될 텍스트입니다. */
     header: string;
+    /** 데이터 값을 커스텀하게 렌더링하고 싶을 때 사용하는 함수입니다. (예: 배지, 아이콘 등) */
     render?: (item: T) => React.ReactNode;
+    /** 텍스트 정렬 방향을 설정합니다. (기본값: left) */
     align?: "left" | "center" | "right";
+    /** 컬럼의 너비를 설정합니다. (예: '120px', '20%') */
     width?: string;
+    /** 해당 컬럼의 정렬 기능을 활성화할지 여부입니다. (기본값: true) */
     sortable?: boolean;
 }
 
 /**
  * @interface TableProps
  * @description Table 컴포넌트의 입력 파라미터 정의입니다.
- * 
- * @property {T[]} data - 렌더링할 데이터 배열
- * @property {Column<T>[]} columns - 컬럼 구성 설정
- * @property {number} totalItems - 전체 데이터 개수 (서버 사이드 페이지네이션 또는 상태 관리용)
- * @property {number} currentPage - 현재 보고 있는 페이지 번호
- * @property {number} itemsPerPage - 한 페이지에 노출할 행 수
- * @property {(page: number) => void} onPageChange - 페이지 전환 핸들러
- * @property {string} [searchPlaceholder] - 검색바의 플레이스홀더 텍스트
  */
 interface TableProps<T> {
+    /** 테이블에 표시할 데이터 배열입니다. */
     data: T[];
+    /** 테이블의 컬럼 구성 및 렌더링 방식에 대한 설정 배열입니다. */
     columns: Column<T>[];
+    /** 전체 데이터 아이템의 총 개수입니다. (서버 사이드 페이지네이션에 활용) */
     totalItems: number;
+    /** 현재 표시되고 있는 페이지 번호(1-indexed)입니다. */
     currentPage: number;
+    /** 한 페이지에 노출할 최대 행 수입니다. */
     itemsPerPage: number;
+    /** 페이지 번호를 변경했을 때 호출되는 콜백 함수입니다. */
     onPageChange: (page: number) => void;
+    /** 검색 창의 플레이스홀더 텍스트입니다. */
     searchPlaceholder?: string;
+    /** 한 페이지 노출 행 수를 변경했을 때 호출되는 콜백 함수입니다. */
+    onRowCountChange?: (count: number) => void;
+    /** 검색어가 입력되었을 때 호출되는 콜백 함수입니다. */
+    onSearch?: (term: string) => void;
+    /** 필터 조건이 변경되었을 때 호출되는 콜백 함수입니다. */
+    onFilter?: (filters: Record<string, Set<string>>) => void;
+    /** 필터 배지의 색상을 동적으로 결정하는 함수입니다. */
+    getFilterBadgeColor?: (column: string, value: string) => string;
+    /** 정렬 조건이 변경되었을 때 호출되는 콜백 함수입니다. */
+    onSort?: (key: string, direction: "asc" | "desc") => void;
+    /** 필터 드롭다운에 노출할 옵션 목록입니다. */
+    filterOptions?: Record<string, string[]>;
 }
 
 // --- Table Component ---
@@ -92,14 +101,7 @@ export default function Table<T extends { id: string | number }>({
     onSort,
     filterOptions: passedFilterOptions,
     searchPlaceholder = "Search for dealer code, dealer name",
-}: TableProps<T> & {
-    onRowCountChange?: (count: number) => void;
-    onSearch?: (term: string) => void;
-    onFilter?: (filters: Record<string, Set<string>>) => void;
-    getFilterBadgeColor?: (column: string, value: string) => string;
-    onSort?: (key: string, direction: "asc" | "desc") => void;
-    filterOptions?: Record<string, string[]>;
-}) {
+}: TableProps<T>) {
     // State
     const [selectedRows, setSelectedRows] = React.useState<Set<string | number>>(new Set());
     const [visibleColumns, setVisibleColumns] = React.useState<Set<string>>(new Set(columns.map(c => c.key)));

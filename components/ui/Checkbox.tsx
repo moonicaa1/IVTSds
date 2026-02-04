@@ -14,10 +14,16 @@ import React from "react";
  * @property {string} [className] - 추가 스타일 클래스
  */
 interface CheckboxProps {
+    /** 체크박스의 상태 (true: 선택, false: 미선택, "indeterminate": 중간 상태) */
     checked?: boolean | "indeterminate";
+    /** 상태 변경 시 호출되는 콜백 함수입니다. */
     onCheckedChange?: (checked: boolean) => void;
+    /** 컴포넌트 비활성화 여부입니다. */
     disabled?: boolean;
+    /** 추가적인 스타일 클래스입니다. */
     className?: string;
+    /** 스크린 리더용 접근성 라벨입니다. */
+    "aria-label"?: string;
 }
 
 /**
@@ -33,6 +39,7 @@ export default function Checkbox({
     onCheckedChange,
     disabled = false,
     className = "",
+    "aria-label": ariaLabel,
 }: CheckboxProps) {
     const handleChange = () => {
         if (disabled || !onCheckedChange) return;
@@ -44,6 +51,7 @@ export default function Checkbox({
             type="button"
             role="checkbox"
             aria-checked={checked === "indeterminate" ? "mixed" : checked}
+            aria-label={ariaLabel}
             disabled={disabled}
             onClick={handleChange}
             className={`
