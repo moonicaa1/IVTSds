@@ -1,9 +1,3 @@
-/**
- * @file Navbar.tsx
- * @description 애플리케이션 최상단에 고정된 헤더 네비게이션 컴포넌트입니다.
- * 글로벌 검색(AI 추천 기능 포함), 다국어 선택, 알림 센터, 사용자 프로필 관리 기능을 제공합니다.
- */
-
 "use client";
 
 import { useSidebar } from "@/lib/contexts/SidebarContext";
@@ -61,6 +55,23 @@ function FlagIcon({ code }: { code: string }) {
   return flagStyles[code] || <div className="w-4 h-3 bg-gray-300" />;
 }
 
+/**
+ * @component Navbar
+ * @description 
+ * 애플리케이션의 최상단 헤더 네비게이션바입니다. 
+ * 단순한 대시보드 기능을 넘어, AI 기반 지능형 검색과 다국어 대응 기능을 포함한 디자인 시스템의 핵심 레이아웃 요소입니다.
+ * 
+ * ### 주요 기능
+ * - **지능형 검색 (AI Search):** 사용자의 입력 의도를 분석하여 연관된 페이지나 액션을 추천합니다.
+ * - **다국어 선택 (i18n):** 일본어, 스페인어, 영어 등 현재 선택된 언어 환경에 맞게 UI를 대응합니다.
+ * - **테마 전환:** 다크 모드와 라이트 모드를 실시간으로 전환할 수 있습니다.
+ * - **알림 및 프로필:** 사용자 정보와 실시간 시스템 알림을 중앙 집중형으로 관리합니다.
+ * 
+ * @example
+ * ```tsx
+ * <Navbar />
+ * ```
+ */
 export default function Navbar() {
   const { theme, toggleTheme } = useTheme();
   const [languageDropdownOpen, setLanguageDropdownOpen] = useState(false);

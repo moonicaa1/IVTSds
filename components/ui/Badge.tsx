@@ -20,11 +20,11 @@ export type BadgeColor =
 
 /**
  * @interface BadgeProps
- * @property {React.ReactNode} children - 뱃지 내부에 표시될 텍스트 또는 노드
- * @property {BadgeColor} [color] - 뱃지의 배경 및 텍스트 색상 테마 (기본값: "Zinc")
- * @property {boolean} [showXButton] - 제거 버튼(X)의 노출 여부
- * @property {(e: React.MouseEvent) => void} [onRemove] - 제거 버튼 클릭 시 호출되는 핸들러
- * @property {string} [className] - 추가적인 스타일링을 위한 CSS 클래스
+ * @property {React.ReactNode} children - 뱃지 내부에 표시될 텍스트 또는 요소입니다. 내용이 너무 길어지지 않도록 주의하십시오.
+ * @property {BadgeColor} [color] - 뱃지의 시각적 테마를 결정합니다. 상태나 카테고리의 성격에 맞는 컬러를 선택하십시오. (기본값: "Zinc")
+ * @property {boolean} [showXButton] - 제거 또는 해제 기능이 필요한 경우 'true'로 설정하여 X 버튼을 표시합니다.
+ * @property {(e: React.MouseEvent) => void} [onRemove] - X 버튼 클릭 시 호출되는 함수입니다. 주로 필터 해제나 상태 삭제 로직을 연결합니다.
+ * @property {string} [className] - 컴포넌트 외부에서 레이아웃이나 간격을 조절하기 위한 추가 CSS 클래스입니다.
  */
 interface BadgeProps {
     children: React.ReactNode;

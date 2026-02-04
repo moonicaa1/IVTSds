@@ -3,9 +3,22 @@ import Badge from "@/components/ui/Badge";
 import React from "react";
 
 /**
- * # Badge
- * 100% Synced with components/ui/Badge.tsx
- * [SYNC STATUS: COMPLETED | 2026-02-03 01:14 PM - Auto-deployment test]
+ * # Badge (Docs 2.0)
+ * 텍스트 정보를 시각적으로 그룹화하고 강조하는 컴포넌트입니다.
+ * 
+ * ## Usage
+ * - 상태 표시 (예: Active, Pending, Error)
+ * - 카테고리 태그 분류
+ * - 선택된 필터 아이템 표시
+ * 
+ * ## Best Practices
+ * ### ✅ Do
+ * - 상태의 의미에 맞는 컬러를 사용하세요 (에러는 Red, 성공은 Green).
+ * - 단어 위주의 짧은 텍스트를 사용하세요.
+ * 
+ * ### ❌ Don't
+ * - <span style="color: #ef4444; font-weight: bold;">[Bad]</span> 문장 단위의 긴 텍스트를 넣지 마세요. 가독성이 떨어집니다.
+ * - <span style="color: #ef4444; font-weight: bold;">[Bad]</span> 클릭 기능이 없는 뱃지에 X 버튼을 노출하지 마세요.
  */
 const meta: Meta<typeof Badge> = {
     title: "Base Components/Badge",
@@ -13,10 +26,24 @@ const meta: Meta<typeof Badge> = {
     tags: ["autodocs"],
     parameters: {
         layout: "centered",
+        docs: {
+            description: {
+                component: "인벤티스 디자인 시스템의 표준 뱃지 컴포넌트입니다.",
+            },
+        },
+        design: {
+            type: "figma",
+            url: "https://www.figma.com/design/XXXXX/IVTS-DS-v0.2?node-id=Badge",
+        },
     },
     argTypes: {
         color: {
             control: "select",
+            description: "뱃지의 컬러 테마를 설정합니다.",
+            table: {
+                type: { summary: "BadgeColor" },
+                defaultValue: { summary: "Zinc" },
+            },
             options: [
                 "Zinc", "Red", "Orange", "Amber", "Yellow",
                 "Lime", "Green", "Emerald", "Teal", "Cyan",
@@ -26,12 +53,18 @@ const meta: Meta<typeof Badge> = {
         },
         showXButton: {
             control: "boolean",
+            description: "삭제 버튼 노출 여부를 제어합니다.",
+            table: {
+                defaultValue: { summary: "false" },
+            },
         },
         onRemove: {
             action: "removed",
+            description: "삭제 버튼 클릭 시 실행되는 콜백 함수입니다.",
         },
         children: {
             control: "text",
+            description: "표시할 텍스트 내용을 입력합니다.",
         },
     },
 };
